@@ -54,6 +54,23 @@ Grok_Imagine_Cinematic_Studio_v3.1/
 3. Share any cinematic vision, story seed, or even one sentence.
 4. Receive a complete **Production Bible v3.1** with full QA review and Go/No-Go decision.
 
+## 🎯 Choosing Your Prompt Mode
+
+We provide **three optimized versions** of the Master Prompt depending on your workflow:
+
+| Mode              | Best For                              | Style                  | When to Use |
+|-------------------|---------------------------------------|------------------------|-------------|
+| **Full Master**   | Complete cinematic productions        | Narrative & detailed   | You want a full Production Bible in one go |
+| **Hybrid Mode**   | **Most users** (Recommended)          | Flexible + structured  | You want to switch between full Bibles and step-by-step control |
+| **Agent Mode**    | Fast iteration & precise control      | Strict & command-based | You prefer activating agents one by one |
+
+**Recommendation**: Start with **Hybrid Mode** — it gives you the best balance of power and flexibility.
+
+All three versions are included in this repository:
+- `MASTER_PROMPT_v3.1.md`
+- `MASTER_PROMPT_HYBRID_MODE_v3.1.md`
+- `MASTER_PROMPT_AGENT_MODE_v3.1.md`
+
 ## 🛠️ How It Works
 
 The studio operates as a professional film production team:
