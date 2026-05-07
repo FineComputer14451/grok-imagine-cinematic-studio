@@ -84,6 +84,36 @@ Check out the complete **[Example Production Bible](Example_Production_Bible_Exa
 
 We welcome contributions! Whether it's a new specialist agent, prompt improvements, or documentation — check out our [CONTRIBUTING.md](CONTRIBUTING.md) guide.
 
+## 📋 Requirements
+
+- Grok 4.3 Beta (or newer) with image/video generation access
+- Basic understanding of prompt engineering (helpful but not required)
+
+## 🗺️ Roadmap
+
+- [ ] Web UI for easier Production Bible editing
+- [ ] Automatic video stitching & export script
+- [ ] Community Agent Marketplace
+- [ ] Integration with Grok 4.3+ native long-form features
+- [ ] Mobile-friendly prompt templates
+
+## 🙏 Acknowledgments
+
+This project was created by **[@FineComputer14451](https://github.com/FineComputer14451)**.
+
+We are deeply grateful to:
+- The **xAI team** for building Grok 4.3 Beta — the powerful foundation that made this studio possible.
+- The **Grok community** for continuous inspiration, feedback, and creative energy.
+- All early contributors who helped shape and refine **v3.1**.
+
+Thank you for being part of this cinematic journey. 🎥
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Whether it's a new specialist agent, prompt improvements, or documentation — check out our [CONTRIBUTING.md](CONTRIBUTING.md) guide.
+
 ## 📜 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
@@ -94,18 +124,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
   <b>Built with ❤️ for cinematic AI storytelling</b><br>
   <i>Transforming ideas into cinema, one frame at a time.</i>
 </p>
-
-## 📜 License
-
-MIT License — Free to use, modify, and distribute.
-
-## 🤝 Contributing
-
-Pull requests are welcome! Especially for:
-- New specialist agents
-- Improved prompt templates
-- Better quota optimization logic
-- Additional cinematic features
 
 ## 🌟 Credits
 
