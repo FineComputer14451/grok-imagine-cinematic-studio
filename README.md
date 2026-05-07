@@ -7,7 +7,6 @@
 <p align="center">
   <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/stargazers"><img src="https://img.shields.io/github/stars/FineComputer14451/grok-imagine-cinematic-studio?style=social" alt="GitHub Stars"></a>
   <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/blob/main/LICENSE"><img src="https://img.shields.io/github/license/FineComputer14451/grok-imagine-cinematic-studio" alt="License"></a>
-  <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/releases"><img src="https://img.shields.io/github/v/release/FineComputer14451/grok-imagine-cinematic-studio?include_prereleases" alt="Latest Release"></a>
 </p>
 
 **The most advanced multi-agent cinematic production system for Grok 4.3 Beta (May 2026)**
