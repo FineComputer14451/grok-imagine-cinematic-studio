@@ -25,11 +25,11 @@ Transform any story seed into emotionally powerful, production-ready 24–30s (o
 
 ## 🚀 What's New in v3.1
 
-- New **Quality Assurance Guardian v3.0**
-- **Studio State Protocol v3.0**
+- New **Quality Assurance Guardian v3.0** — Final gatekeeper with 10-point Full Bible Review
+- **Studio State Protocol v3.0** — Live shared state across all agents
 - **Self-Evaluation Layer** on every output
-- **Mandatory QA Gate** before generation
-- Improved **Prompt Optimizer**, **Beat-Synced Audio**, and **Momentum Vector** support
+- **Mandatory QA Gate** before any generation
+- Improved **Prompt Optimizer**, **Beat-Synced Audio Arc**, and **Momentum Vector** support
 
 ## 📁 Repository Structure
 
@@ -39,28 +39,20 @@ Grok_Imagine_Cinematic_Studio_v3.1/
 ├── MASTER_PROMPT_v3.1.md          # Complete master system prompt (copy-paste ready)
 ├── LICENSE
 ├── .gitignore
-└── agents/
-    ├── Studio_Director_v3.0.txt
-    ├── Imagine_Prompt_Master_v3.0.txt
-    ├── Mega_Production_Architect_v3.0.txt
-    ├── Quality_Assurance_Guardian_v3.0.txt
-    ├── Workflow_Quota_Optimizer_v3.0.txt
-    ├── Performance_Emotion_Director_v3.0.txt
-    ├── Sonic_Architect_Native_Audio_Virtuoso_v3.0.txt
-    ├── Post_Production_Color_Grading_Supervisor_v3.0.txt
-    ├── Narrative_Arc_Pacing_Strategist_v3.0.txt
-    ├── Director_of_Photography_DoP_v3.0.txt
-    ├── Continuity_Consistency_Guardian_v3.0.txt
-    ├── Cinematic_Sequence_Extender_v3.0.txt
-    └── ErosForge_NSFW_Director_v3.0.txt
+├── CONTRIBUTING.md
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTORS.md
+├── Example_Production_Bible_Example.md
+└── agents/ (13 specialized agents)
 ```
 
 ## 🚀 Quick Start
 
-1. Copy the entire content of `MASTER_PROMPT_v3.1.md` into Grok (or your preferred LLM).
+1. Copy the entire content of `MASTER_PROMPT_v3.1.md` into Grok.
 2. Say: **"Activate Grok Imagine Cinematic Studio v3.1"**
-3. Give any cinematic vision, story seed, or even one sentence.
-4. Receive a complete **Production Bible v3.1** with full QA review.
+3. Share any cinematic vision, story seed, or even one sentence.
+4. Receive a complete **Production Bible v3.1** with full QA review and Go/No-Go decision.
 
 ## 🛠️ How It Works
 
@@ -72,17 +64,11 @@ The studio operates as a professional film production team:
 - **Quality Assurance Guardian** — Final 10-point review + Go/No-Go before generation
 - + 9 specialist agents for emotion, sound, cinematography, continuity, quota, etc.
 
-All agents follow strict protocols: **6/8/10s clips only**, **480p primary**, smooth cinematic camera, mandatory `[VARIABLE]` references, and maximum seam invisibility.
+All agents follow strict protocols: **6/8/10s clips only**, **480p primary**, smooth cinematic camera movement, mandatory `[VARIABLE]` references, and maximum seam invisibility.
 
 ## 🎬 See It In Action
 
 Check out the complete **[Example Production Bible](Example_Production_Bible_Example.md)** — a full 24-second neo-noir scene with QA sign-off.
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Whether it's a new specialist agent, prompt improvements, or documentation — check out our [CONTRIBUTING.md](CONTRIBUTING.md) guide.
 
 ## 📋 Requirements
 
@@ -108,8 +94,6 @@ We are deeply grateful to:
 
 Thank you for being part of this cinematic journey. 🎥
 
----
-
 ## 🤝 Contributing
 
 We welcome contributions! Whether it's a new specialist agent, prompt improvements, or documentation — check out our [CONTRIBUTING.md](CONTRIBUTING.md) guide.
@@ -124,11 +108,3 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
   <b>Built with ❤️ for cinematic AI storytelling</b><br>
   <i>Transforming ideas into cinema, one frame at a time.</i>
 </p>
-
-## 🌟 Credits
-
-Built by the Grok community for maximum cinematic quality with Grok 4.3 Beta.
-
----
-
-**Ready to make cinema?** Just activate the master prompt and share your vision.
