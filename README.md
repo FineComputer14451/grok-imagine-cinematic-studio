@@ -4,17 +4,33 @@
   <img src="assets/banner.jpg" alt="Grok Imagine Cinematic Studio v3.1" width="100%">
 </p>
 
+<p align="center">
+  <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/stargazers"><img src="https://img.shields.io/github/stars/FineComputer14451/grok-imagine-cinematic-studio?style=social" alt="GitHub Stars"></a>
+  <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/blob/main/LICENSE"><img src="https://img.shields.io/github/license/FineComputer14451/grok-imagine-cinematic-studio" alt="License"></a>
+  <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/releases"><img src="https://img.shields.io/github/v/release/FineComputer14451/grok-imagine-cinematic-studio?include_prereleases" alt="Latest Release"></a>
+</p>
+
 **The most advanced multi-agent cinematic production system for Grok 4.3 Beta (May 2026)**
 
 Transform any story seed into emotionally powerful, production-ready 24–30s (or longer) cinematic videos with perfect consistency, quota efficiency, and final QA sign-off.
 
-## ✨ What's New in v3.1
+## ✨ Key Features
 
-- **Quality Assurance Guardian v3.0** — Final gatekeeper with 10-point Full Bible Review + Go/No-Go decision
-- **Studio State Protocol v3.0** — Live shared state across all agents
+- **Quality Assurance Guardian** — Final 10-point review + Go/No-Go before any generation
+- **13 Specialized Agents** — Full professional film crew (Director, DoP, Emotion, Sound, Continuity, etc.)
+- **Studio State Protocol** — Shared memory across all agents for perfect consistency
+- **Self-Evaluation Layer** — Every agent scores its own output (1–10)
+- **Mandatory QA Gate** — Nothing is generated without final approval
+- **Prompt Optimizer + Micro-Expression Library** — Maximum emotional depth and motion quality
+- **Seamless Long-Form Extensions** — Momentum Vector + LAST_FRAME_RECAP for 60s+ videos
+
+## 🚀 What's New in v3.1
+
+- New **Quality Assurance Guardian v3.0**
+- **Studio State Protocol v3.0**
 - **Self-Evaluation Layer** on every output
-- **Mandatory QA Gate** before any generation
-- **Prompt Optimizer**, **Micro-Expression Library**, **Beat-Synced Audio Arc**, **Momentum Vector** in extensions, and more
+- **Mandatory QA Gate** before generation
+- Improved **Prompt Optimizer**, **Beat-Synced Audio**, and **Momentum Vector** support
 
 ## 📁 Repository Structure
 
@@ -57,7 +73,28 @@ The studio operates as a professional film production team:
 - **Quality Assurance Guardian** — Final 10-point review + Go/No-Go before generation
 - + 9 specialist agents for emotion, sound, cinematography, continuity, quota, etc.
 
-All agents follow strict protocols: 6/8/10s clips only, 480p primary, smooth cinematic camera, mandatory [VARIABLE] references, and maximum seam invisibility.
+All agents follow strict protocols: **6/8/10s clips only**, **480p primary**, smooth cinematic camera, mandatory `[VARIABLE]` references, and maximum seam invisibility.
+
+## 🎬 See It In Action
+
+Check out the complete **[Example Production Bible](Example_Production_Bible_Example.md)** — a full 24-second neo-noir scene with QA sign-off.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Whether it's a new specialist agent, prompt improvements, or documentation — check out our [CONTRIBUTING.md](CONTRIBUTING.md) guide.
+
+## 📜 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  <b>Built with ❤️ for cinematic AI storytelling</b><br>
+  <i>Transforming ideas into cinema, one frame at a time.</i>
+</p>
 
 ## 📜 License
 
