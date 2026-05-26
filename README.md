@@ -4,6 +4,14 @@
   <img src="assets/banner-v3.2.png" alt="Grok Imagine Cinematic Studio v3.2" width="100%">
 </p>
 
+<p align="center">
+  <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/stargazers"><img src="https://img.shields.io/github/stars/FineComputer14451/grok-imagine-cinematic-studio?style=social" alt="GitHub Stars"></a>
+  <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/network/members"><img src="https://img.shields.io/github/forks/FineComputer14451/grok-imagine-cinematic-studio?style=social" alt="GitHub Forks"></a>
+  <img src="https://img.shields.io/badge/version-v3.2-00B4D8" alt="Version">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/Grok-4.3%20Beta-7B2CBF" alt="Grok Version">
+</p>
+
 <h1 align="center">Grok Imagine Cinematic Studio</h1>
 <h3 align="center">v3.2 — May 2026</h3>
 
