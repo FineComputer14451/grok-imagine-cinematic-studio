@@ -1,118 +1,171 @@
-# Grok Imagine Cinematic Studio v3.2
+<p align="center">
+  <img src="https://raw.githubusercontent.com/FineComputer14451/grok-imagine-cinematic-studio/main/assets/banner_v3.3.png" alt="Grok Imagine Cinematic Studio v3.3" width="100%">
+</p>
+
+<h1 align="center">Grok Imagine Cinematic Studio v3.3</h1>
 
 <p align="center">
-  <img src="assets/banner-v3.2.png" alt="Grok Imagine Cinematic Studio v3.2" width="100%">
+  <strong>The most advanced multi-agent cinematic production system for Grok 4.3 Beta</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/stargazers"><img src="https://img.shields.io/github/stars/FineComputer14451/grok-imagine-cinematic-studio?style=social" alt="GitHub Stars"></a>
-  <a href="https://github.com/FineComputer14451/grok-imagine-cinematic-studio/network/members"><img src="https://img.shields.io/github/forks/FineComputer14451/grok-imagine-cinematic-studio?style=social" alt="GitHub Forks"></a>
-  <img src="https://img.shields.io/badge/version-v3.2-00B4D8" alt="Version">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
-  <img src="https://img.shields.io/badge/Grok-4.3%20Beta-7B2CBF" alt="Grok Version">
-</p>
-
-<h1 align="center">Grok Imagine Cinematic Studio</h1>
-<h3 align="center">v3.2 — May 2026</h3>
-
-<p align="center">
-  <strong>The most advanced multi-agent cinematic production system for Grok 4.3 Beta</strong><br>
-  <em>Character Consistency • Native Sequence Mode • Reference Image Layer • One-Click Execution</em>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.3-blue?style=for-the-badge&logo=git" alt="Version 3.3"></a>
+  <a href="#"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Grok-4.3%20Beta-8B5CF6?style=for-the-badge" alt="Grok 4.3 Beta"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Agents-15-orange?style=for-the-badge" alt="15 Agents"></a>
+  <a href="#"><img src="https://img.shields.io/badge/QA-16--point-red?style=for-the-badge" alt="16-point QA"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Updated-May%2026%2C%202026-lightgrey?style=for-the-badge" alt="Last Updated"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Made%20with-Grok-000000?style=for-the-badge&logo=x&logoColor=white" alt="Made with Grok"></a>
 </p>
 
 <p align="center">
-  <a href="#quick-start">Quick Start</a> • 
-  <a href="#whats-new-in-v32">What's New</a> • 
-  <a href="#prompt-modes">Prompt Modes</a> • 
-  <a href="#key-features">Features</a>
+  <em>Transform any story into emotionally powerful, production-ready cinematic video with perfect character consistency and a full professional film crew.</em>
 </p>
 
 ---
 
-## What's New in v3.2
-
-| Feature                        | Description |
-|--------------------------------|-------------|
-| **Character Consistency Engine v2.0** | New **Identity Lock Specialist** + **Character DNA Bible** + **Character Drift Score** (0–10) |
-| **Native Sequence Mode**       | Built-in multi-clip generation with automatic stitching instructions for 60–120+ second sequences |
-| **Reference Image Management Layer** | Clear handling of Primary Character, Style, and Mood references with proper weighting |
-| **One-Click Execution Commands** | `EXECUTE FIRST CLIP`, `START FULL SEQUENCE`, `GENERATE ALL REFERENCE IMAGES` — ready to copy |
-| **Director Signature System**  | Activate cinematic voices (Villeneuve, Deakins, Wong Kar-wai, etc.) |
-| **Quality Assurance Guardian v3.2** | Expanded 12-point review including Character Drift Score and Sequence Feasibility |
+**Key Highlights:** Character Consistency Engine v2.0 • Native Sequence Mode • Dynamic Agent Control • 15 Specialized Agents • 16-point QA Guardian • Self-Improvement Loop
 
 ---
 
-## Quick Start
+## ✨ What's New in v3.3 (May 26, 2026)
 
-### Recommended: Hybrid Mode (Most Users)
-
-1. Copy the content of **`MASTER_PROMPT_HYBRID_MODE_v3.2.md`**
-2. Paste it into Grok
-3. Type: `Activate Grok Imagine Cinematic Studio v3.2`
-4. Choose your workflow or simply describe your vision
-
-### Full Power Mode
-
-1. Copy **`MASTER_PROMPT_v3.2.md`**
-2. Paste into Grok
-3. Type: `Activate Grok Imagine Cinematic Studio v3.2`
-
-### Maximum Control (Agent Mode)
-
-1. Copy **`MASTER_PROMPT_AGENT_MODE_v3.2.md`**
-2. Use commands like `START NEW PROJECT`, `DEFINE CHARACTER DNA`, `RUN QA REVIEW`
+- **15 Specialized Agents** (up from 13)
+- **Dynamic Agent Activation** — Enable or disable any agent at any time
+- **Structured Handoff Protocol** — Cleaner collaboration between agents
+- **Self-Improvement Loop** — Agents learn from their own performance
+- **Agent Personality Profiles** — Distinct creative voices for every specialist
+- **16-point QA Guardian** with Weighted Scoring + Auto-Revision
+- **7-Metric Self-Evaluation** (including new Confidence Score)
+- Full support for **ErosForge NSFW Director** and **Cinematic Sequence Extender**
 
 ---
 
-## Prompt Modes
+## 🚀 Quick Start (Recommended: Hybrid Mode)
 
-| Mode              | Best For                          | Style                  |
-|-------------------|-----------------------------------|------------------------|
-| **Hybrid Mode**   | Most users (Recommended)          | Flexible + Structured  |
-| **Full Mode**     | Complete one-shot productions     | Narrative & Detailed   |
-| **Agent Mode**    | Maximum precision & control       | Strict command-based   |
-
----
-
-## Key Features
-
-- **13 Specialized Agents** with shared Studio State
-- **Mandatory Quality Assurance Guardian** (12-point review)
-- **Character DNA System** — Lock character identity across clips
-- **Sequence Director** — Native long-form multi-clip support
-- **Self-Evaluation Layer** on every output
-- **Director Signature** — Apply specific cinematic styles
-- **One-Click Commands** for fast iteration
-- Optimized for **Grok 4.3 Beta** video generation
+1. Copy the entire content of **`MASTER_PROMPT_v3.3.md`**
+2. Paste it into a new Grok chat
+3. Type: **`Activate Grok Imagine Cinematic Studio v3.3`**
+4. Choose your workflow:
+   - **A** — Full Production Bible (recommended)
+   - **B** — Step-by-step control
+   - **C** — Quick Scene
+   - **D** — Long Sequence Mode
+   - **E** — Custom Agent Selection
 
 ---
 
-## Files Included
+## 🎯 Key Features
 
-- `MASTER_PROMPT_v3.2.md` — Full powerful version
-- `MASTER_PROMPT_HYBRID_MODE_v3.2.md` — Recommended flexible version
-- `MASTER_PROMPT_AGENT_MODE_v3.2.md` — Strict agent command version
-- `CHANGELOG_v3.2.md` — Full release notes
-
----
-
-## Roadmap
-
-- [x] Character Consistency Engine v2.0
-- [x] Native Sequence Mode
-- [x] Reference Image Management
-- [ ] Web UI for Bible editing
-- [ ] Automatic video stitching script
-- [ ] Community Agent Marketplace
+| Feature | Description |
+|---------|-------------|
+| **15 Specialized Agents** | Full professional film crew + 2 optional specialists |
+| **Dynamic Agent Control** | Turn agents on/off with simple commands |
+| **Character Consistency Engine v2.0** | Multi-character DNA + Drift Scoring + Transformation Tracking |
+| **Native Sequence Mode** | 60–120+ second productions with smart clipping & stitching |
+| **16-point QA Guardian** | Mandatory final review with Weighted Scoring & Auto-Revision |
+| **Director Signature System** | Apply iconic cinematic styles (Villeneuve, Deakins, etc.) |
+| **One-Click Commands** | `EXECUTE FIRST CLIP`, `START FULL SEQUENCE`, `ACTIVATE ONLY [AGENTS]` |
+| **Self-Improvement Loop** | Agents get smarter with every production |
 
 ---
 
-## License
+## 🧠 Multi-Agent Orchestration Flow
 
-MIT License — Feel free to use, modify, and share.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/FineComputer14451/grok-imagine-cinematic-studio/main/assets/orchestration_flow_v3.3.png" alt="Multi-Agent Orchestration Flow v3.3" width="100%">
+</p>
+
+**How it works:**
+- **Studio Director** acts as central orchestrator
+- Agents collaborate via **Studio State** (shared memory) and **Handoff Packets**
+- **Quality Assurance Guardian** enforces a mandatory 16-point review before any generation
+- Parallel groups run where possible for efficiency
 
 ---
 
-**Made with ❤️ for the Grok community**
+## 🏗️ Complete System Architecture
 
-*Transform any idea into emotionally powerful, production-ready cinematic experiences.*
+<p align="center">
+  <img src="https://raw.githubusercontent.com/FineComputer14451/grok-imagine-cinematic-studio/main/assets/system_architecture_v3.3.png" alt="Complete System Architecture v3.3" width="100%">
+</p>
+
+**Architecture Overview:**
+- **Central Hub:** Project Bible (Style Guide, Character Sheets, Mood Boards, Shot List, Locked Variables)
+- **15 Enhanced Agents** with specialized protocols and v3.3/v4.0 capabilities
+- **Tool Integrations:** generate_image, edit_image, search_images, web_search
+- **Final Gate:** Quality Assurance Guardian (16-point review + Go/No-Go)
+
+---
+
+## 📁 Repository Structure (v3.3)
+
+## 📁 Repository Structure (v3.3)
+
+```
+grok-imagine-cinematic-studio-v3.3/
+├── README.md
+├── CHANGELOG.md
+├── MASTER_PROMPT_v3.3.md          ← Main prompt (copy-paste this)
+├── agents/
+│   ├── Studio_Director_v3.3.txt
+│   ├── Imagine_Prompt_Master_v3.3.txt
+│   ├── Mega_Production_Architect_v3.3.txt
+│   ├── Identity_Lock_Specialist_v3.3.txt
+│   ├── Continuity_Consistency_Guardian_v3.3.txt
+│   ├── Director_of_Photography_DoP_v3.3.txt
+│   ├── Performance_Emotion_Director_v3.3.txt
+│   ├── Sonic_Architect_Native_Audio_Virtuoso_v3.3.txt
+│   ├── Narrative_Arc_Pacing_Strategist_v3.3.txt
+│   ├── Post_Production_Color_Grading_Supervisor_v3.3.txt
+│   ├── Workflow_Quota_Optimizer_v3.3.txt
+│   ├── Sequence_Director_v3.3.txt
+│   ├── Quality_Assurance_Guardian_v3.3.txt
+│   ├── ErosForge_NSFW_Director_v3.3.txt          ← Optional NSFW specialist
+│   └── Cinematic_Sequence_Extender_v3.3.txt      ← Long-form extension specialist
+├── LICENSE
+└── Example_Production_Bible_Example.md
+```
+
+---
+
+## 🛠️ Requirements
+
+- Grok 4.3 Beta (or newer) with video generation access
+- Basic understanding of prompt engineering (helpful but not required)
+
+---
+
+## 🗺️ Roadmap (Future)
+
+- Web UI for Bible editing and agent management
+- Automatic video stitching & export script
+- Community Agent Marketplace
+- Mobile-friendly prompt templates
+- Integration with Grok 4.3+ native long-form features
+
+---
+
+## 🙏 Acknowledgments
+
+Created by **@FineComputer14451**
+
+Special thanks to:
+- The **xAI team** for Grok 4.3 Beta
+- The Grok community for feedback and inspiration
+- All early contributors and testers
+
+---
+
+## 📜 License
+
+**MIT License** — Free to use, modify, and share.
+
+---
+
+**Built with ❤️ for cinematic AI storytelling**  
+*Transforming ideas into cinema, one frame at a time — now with true dynamic control.*
+
+---
+
+**Version 3.3 — May 26, 2026**
