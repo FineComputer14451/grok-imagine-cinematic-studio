@@ -1,148 +1,277 @@
-# Production Bible v3.1 — Example
+# Example Production Bible v3.3 — Neo-Noir Short Film
 
-**Project Name**: Blackheart_Revenge_v01  
-**Concept Seed**: A brooding anti-hero stands in the rain at midnight, reflecting on betrayal, then walks toward a neon-lit alley with quiet determination.  
-**Mood**: Dark, cinematic, neo-noir, emotionally intense, restrained power  
-**Total Duration**: 24 seconds (3 × 8s clips)  
-**Style**: Gritty cinematic realism with subtle anamorphic lens character
-
----
-
-## Section 1: Project Overview & Vision
-
-**Logline**: In the pouring rain, a betrayed man makes the quiet decision to take back what was stolen from him.
-
-**Emotional Core**: Quiet rage transforming into cold resolve.
-
-**Target Feeling**: Viewers should feel the weight of betrayal and the slow burn of impending vengeance.
+**Project:** "Midnight Rain" — 24-second neo-noir cinematic scene  
+**Version:** v3.3 — May 26, 2026  
+**Director Signature:** Denis Villeneuve (slow, atmospheric, emotional tension)  
+**Total Duration:** 24 seconds (3 × 8-second clips)  
+**Aspect Ratio:** 2.39:1 (Cinematic)  
+**Resolution:** 720p
 
 ---
 
-## 1.5 Cinematic Style & Aesthetic Bible
+## 📖 PRODUCTION BIBLE (Locked References)
 
-- [COLOR_PALETTE] = Deep teal shadows, desaturated neon blues and magentas, warm amber highlights on skin
-- [FILM_STOCK] = Kodak Vision3 500T pushed 1 stop, subtle film grain
-- [LENS_CHARACTERISTICS] = ARRI Alexa Mini LF + Panavision C-Series anamorphic, T2.8, gentle breathing, soft flares on neon
-- [VISUAL_MOTIFS] = Rain droplets on skin and lens, steam rising from pavement, single swinging light bulb
-- [COLOR_GRADING] = Teal & orange with crushed blacks and lifted mid-tones in shadows
-- [FRAMING_STYLE] = Wide anamorphic compositions, negative space, low angles for power
-- [AESTHETIC_TONE] = Moody, atmospheric, restrained, cinematic neo-noir
+### [DETECTIVE]
+age: 42, gender: male, ethnicity: Caucasian, body_type: lean athletic, hair: short salt-and-pepper with receding hairline, eyes: tired hazel with dark circles, facial_features: sharp jawline, 5 o'clock shadow, distinctive scar on left cheekbone, signature_clothing: worn brown trench coat with water stains and frayed cuffs, silver wedding ring on left hand (twists when stressed), posture: slightly hunched, lighting_signature: cool teal rim light on face, color_palette_affinity: desaturated teal and warm amber
 
----
+### [WOMAN_IN_RED]
+age: 35, gender: female, ethnicity: East Asian, body_type: slender elegant, hair: sharp black bob with subtle purple streak, eyes: dark brown with subtle winged eyeliner, facial_features: high cheekbones, pale porcelain skin, subtle scar above left eyebrow, signature_clothing: form-fitting crimson red dress with subtle gold embroidery, red lipstick, posture: confident with slight head tilt, lighting_signature: strong red key light with cool fill, color_palette_affinity: saturated red against cool teal shadows
 
-## 1.6 Sound Design & Audio Bible
+### [LOCATION: RAINY_NIGHT_STREET]
+description: wet cobblestone street at night, neon signs reflecting in puddles, heavy rain, steam rising from manhole covers, distant city lights, film noir atmosphere
 
-- [MUSIC_THEME] = Low pulsing synth bass + distant rain + subtle metallic chimes
-- [SFX_SIGNATURE] = Heavy rain, distant thunder, wet footsteps, fabric movement
-- [AMBIENCE_LAYER] = Dense urban rain + distant city hum + occasional car pass-by
-- [DIALOGUE_DELIVERY_STYLE] = Low, gravelly, almost whispered internal monologue
-- [AUDIO_ARC] = Starts sparse and tense → builds subtle intensity → resolves with a single deep breath
-- [BEAT_SYNCED_TIMESTAMPS] = Rain intensifies at 0:03, thunder hit at 0:11, footsteps sync with bass pulse at 0:17
+### [MOTIF: RED_DRESS]
+description: the only saturated color in frame, symbolizes danger, passion, and hidden truth, appears in every clip as visual anchor
 
 ---
 
-## 2. Character & World Bible
+## 1. Project Scope & Vision
 
-**Character: Blackheart (Male, late 30s)**
-
-- [MOVEMENT_SIGNATURE] = Slow, deliberate, heavy with purpose. Shoulders slightly forward, hands in coat pockets.
-- [EMOTIONAL_MICROEXPRESSIONS] = Subtle jaw clench (30%), eyes narrowed with focused intensity, micro-frown that deepens over time, single tear mixed with rain at 0:08
-- [CLOTHING_EVOLUTION] = Long black wool coat soaked and heavy, collar up, water streaming off shoulders
-- [VOICE_PROFILE] = Deep, raspy, measured — like a man who has said very little for a long time
-- [BODY_LANGUAGE_SIGNATURE] = Minimal movement, powerful stillness that feels dangerous
-
-**World Rules**:
-- Midnight in a decaying industrial district
-- Heavy rain that never stops
-- Neon signs flicker and reflect in puddles
-- The world feels heavy, wet, and unforgiving
+**Genre:** Neo-Noir / Psychological Thriller  
+**Tone:** Melancholic, tense, intimate  
+**Emotional Core:** Loneliness + quiet desperation + unspoken connection  
+**Technical Goals:** Maximum character consistency (98%+), cinematic lighting, emotional micro-expressions, 6–8s clip standard
 
 ---
 
-## 3. Reference Image Prompts (Optimized)
+## 2. Director Signature
 
-**Master Reference Image 1** (Hero Shot):
-Copy and paste this exact prompt into Grok Imagine:
+**Primary:** Denis Villeneuve  
+**Secondary Influences:** Roger Deakins (lighting), Wong Kar-wai (emotional color), Christopher Nolan (temporal tension)
 
-A brooding man in a soaked black coat stands in heavy rain at midnight, neon signs reflecting in puddles, intense focused expression, cinematic neo-noir lighting, ARRI Alexa anamorphic lens, deep teal shadows and warm amber highlights, film grain, moody atmosphere, ultra-detailed skin texture with rain droplets, [COLOR_PALETTE], [LENS_CHARACTERISTICS], [VISUAL_MOTIFS], Grok 4.3 Beta maximum fidelity.
-
----
-
-## 4. Detailed Storyboard (with Pacing Heatmap)
-
-**Clip 1 (0:00–0:08)** — The Weight  
-**Emotional Intensity**: 7/10  
-**Camera**: Slow dolly in from medium-wide to medium shot, slight downward tilt  
-**Action**: Blackheart stands motionless in the rain, rain streaming down his face. He slowly lifts his head. A single tear falls.  
-**Micro-expression**: Jaw tightens 30% → eyes narrow with cold focus
-
-**Clip 2 (0:08–0:16)** — The Decision  
-**Emotional Intensity**: 8.5/10  
-**Camera**: Slow push-in to close-up on eyes and mouth, then subtle pull back  
-**Action**: He takes one deep breath. Shoulders settle. Rain intensifies. He turns his head slightly toward the neon alley.  
-**Micro-expression**: Micro-frown deepens, gaze hardens
-
-**Clip 3 (0:16–0:24)** — The Walk  
-**Emotional Intensity**: 9/10  
-**Camera**: Tracking shot following him from behind at shoulder level, slight handheld sway  
-**Action**: He begins walking toward the neon-lit alley with quiet, unstoppable purpose. Coat flows heavily with each step.  
-**Micro-expression**: Face becomes stone — pure resolve
-
-**Pacing Heatmap**: Steady build from 7 → 9 over 24 seconds. Peak emotional payoff in final 4 seconds.
+**Signature Elements Applied:**
+- Slow, deliberate camera movements (dolly, tracking, subtle crane)
+- Heavy use of negative space and reflections
+- Strong color contrast (teal shadows + warm practicals + saturated red accent)
+- Emphasis on silence, ambient rain, and subtle sound design
+- Volumetric god rays through rain, anamorphic lens flares on neon
 
 ---
 
-## 5. Full Timed Audio Script
+## 3. Storyboard & Shot List (6–8s Clips)
 
-**0:00–0:03**  
-[Rain intensifies] [Low pulsing synth bass enters]  
-**Blackheart (whispered internal monologue)**: “They took everything…”
+### Clip 01 | 00:00–00:08 (8s) | Slow tracking shot
+**Visual Prompt (copy-paste ready):**  
+"Cinematic still frame, exact same [DETECTIVE] as locked reference: sharp jawline, tired hazel eyes with dark circles, 5 o'clock shadow, worn brown trench coat with water stains, silver wedding ring on left hand. Walking slowly down [LOCATION: RAINY_NIGHT_STREET], rain droplets catching neon light, steam rising from pavement, cool teal rim lighting on face, warm amber practical light from neon sign ahead, shallow depth of field with beautiful bokeh on rain and reflections, anamorphic lens flare, subtle film grain, in the style of Roger Deakins and Denis Villeneuve, masterpiece, 8K UHD, cinematic color grading"
 
-**0:03–0:08**  
-[Thunder rolls in distance]  
-**Blackheart**: “…and smiled while they did it.”
-
-**0:08–0:12**  
-[Footsteps begin, heavy and wet]  
-**Blackheart**: “Tonight… I take it back.”
-
-**0:12–0:24**  
-[Music swells subtly with bass pulse synced to footsteps]  
-[No dialogue — only rain, thunder, and determined breathing]
+**Key Beats:** Detective enters frame from shadows, lights cigarette, rain on coat, wedding ring visible, eyes scanning the street
 
 ---
 
-## 6. Step-by-Step Execution Plan
+### Clip 02 | 00:08–00:16 (8s) | Slow push-in + rack focus
+**Visual Prompt (copy-paste ready):**  
+"Cinematic still frame continuing from previous, exact same [DETECTIVE] and [WOMAN_IN_RED] as locked references. Detective enters dimly lit bar, [WOMAN_IN_RED] already seated with back to camera, her crimson red dress glowing under single warm practical light, Detective sits across from her, their eyes meet, slow push-in on faces, rack focus from her red dress to their eyes, cool teal shadows, intense eye contact, subtle tension, in the style of Denis Villeneuve and Wong Kar-wai, masterpiece, 8K UHD"
 
-1. Generate 3 reference images using prompts above (480p)
-2. Generate Clip 1 (8s @ 480p) using full bible references
-3. Generate Clip 2 using Master Extend from Frame Template v3.0 + momentum vector
-4. Generate Clip 3 using Master Extend from Frame Template v3.0
-5. Quality Assurance Guardian performs Full Bible Review
-6. If ✅ GO → Export final sequence with Post-Production notes applied
-
-**Quota Forecast**: 4 generations (3 clips + 1 hero reference) → ~35% of daily quota  
-**Risk Level**: Low-Medium (heavy rain + neon reflections require strong negative guard)
+**Key Beats:** First meeting, eye contact, tension, red dress as visual anchor
 
 ---
 
-## Quality Assurance Guardian Report v3.1
+### Clip 03 | 00:16–00:24 (8s) | Close-up + slow dolly out
+**Visual Prompt (copy-paste ready):**  
+"Cinematic still frame continuing from previous, exact same [DETECTIVE] and [WOMAN_IN_RED] as locked references. Close-up on their hands on the table, [DETECTIVE]'s silver wedding ring visible, [WOMAN_IN_RED] slides a photograph across the table, slow dolly out to reveal both faces half in shadow, rain running down window behind them, final shot: her red lips saying 'Everyone has something to hide...', fade to black, in the style of Denis Villeneuve, masterpiece, 8K UHD, cinematic color grading"
 
-**Overall Quality Score**: 9.4 / 10  
-**Breakdown**:
-- Consistency: 9.5/10
-- Emotional Power: 9.8/10
-- Technical Feasibility: 9.2/10
-- Quota Efficiency: 9.0/10
-- Cinematic Excellence: 9.6/10
-
-**Critical Issues**: None  
-**Minor Improvements Recommended**: Slightly increase rain intensity in Clip 3 for dramatic effect  
-**Risk Flags**: None  
-**Go/No-Go Decision**: ✅ GO — Ready for generation
-
-**Final Recommendation**: This is a strong, emotionally resonant 24-second piece with excellent cinematic language. Proceed with generation.
+**Key Beats:** Photograph reveal, wedding ring, final line, rain on window, emotional resolution
 
 ---
 
-*This example demonstrates the full v3.1 workflow with the Quality Assurance Guardian providing final sign-off.*
+## 4. Master Timed Audio Script (Frame-Accurate)
+
+**[00:00–00:08]** NARRATOR (low, gravelly, intimate): "Some nights, the city feels like it's watching you back." [SFX: gentle rain on pavement, distant thunder, wet footsteps] [MUSIC: low pulsing ambient drone, 68 BPM, subtle piano motif entering at 4s]
+
+**[00:08–00:16]** NARRATOR (slightly closer, more intimate): "He didn't come here looking for answers. He came because he already knew them." [SFX: bar door opening, soft jazz in background, ice clinking in glass] [MUSIC: piano motif swells slightly, tension building]
+
+**[00:16–00:24]** [WOMAN_IN_RED] (soft, slightly raspy, emotionally complex): "Everyone has something to hide in this city..." [SFX: rain intensifying on window, distant siren] [MUSIC: piano motif resolves into melancholic minor chord, fade with rain]
+
+---
+
+## 5. 16-Point QA Review (v3.3)
+
+| # | Criterion | Score | Notes |
+|---|-----------|-------|-------|
+| 1 | Character Consistency ([DETECTIVE]) | 9.5 | Locked variables maintained perfectly |
+| 2 | Character Consistency ([WOMAN_IN_RED]) | 9.5 | Red dress and scar consistent across all clips |
+| 3 | Emotional Power | 8.5 | Quiet tension well executed |
+| 4 | Cinematic Excellence | 9.0 | Villeneuve signature clearly present |
+| 5 | Technical Feasibility | 9.0 | Realistic rain, lighting, reflections |
+| 6 | Quota Efficiency | 8.5 | Well-optimized 8s clips |
+| 7 | Narrative Clarity | 8.5 | Story clear with minimal dialogue |
+| 8 | Visual Cohesion | 9.5 | Strong color palette and lighting continuity |
+| 9 | Audio-Visual Sync | 9.0 | Rain and ambient design support mood |
+| 10 | Sequence Feasibility (24s) | 9.0 | Excellent pacing across 3 clips |
+| 11 | Character Drift Score | 1.2 | Excellent (well below 3.0 threshold) |
+| 12 | Cultural / Period Accuracy | 9.0 | Authentic neo-noir aesthetic |
+| 13 | Innovation Score | 7.5 | Strong execution of established style |
+| 14 | Long-term Narrative Health | 8.5 | Good setup for potential series |
+| 15 | Consent & Safety (N/A) | — | No NSFW content |
+| 16 | Overall Artistic Integrity | 9.0 | High emotional and visual quality |
+
+**Final QA Score:** **8.9 / 10**  
+**Character Drift Score:** 1.2 (Excellent)  
+**Decision:** ✅ **GO — Proceed with Generation**
+
+---
+
+## 6. Director's Notes (Post-Generation)
+
+**Strengths:**
+- Excellent character consistency using locked [VARIABLE] system
+- Strong visual motif (red dress) maintained across all clips
+- Emotional tension well supported by rain and ambient audio
+- 8-second clip length optimal for Grok Imagine coherence
+
+**Issues Identified:**
+- None critical. Minor suggestion: enhance rain droplet refraction on window in Clip 03 for more visual interest.
+
+**Recommended Fixes:**
+- Edit Clip 03 with: "enhance rain droplet refraction and reflections on window glass, add subtle god rays through rain"
+
+**Suggested Next Shots (if expanding to series):**
+- Flashback sequence showing how [DETECTIVE] and [WOMAN_IN_RED] first met
+- Close-up on the photograph she slides across the table
+- Final shot of [DETECTIVE] alone on the street, rain intensifying
+
+---
+
+## 7. Execution Roadmap
+
+1. **Generate hero reference image** for [DETECTIVE] and [WOMAN_IN_RED] (locked variables)
+2. **Generate Clip 01** video using hero reference
+3. **Generate Clip 02** using "Extend from previous frame" with exact same [DETECTIVE] and [WOMAN_IN_RED]
+4. **Generate Clip 03** using "Extend from previous frame"
+5. **Color grade pass** on all clips for unified teal-orange look
+6. **Final QA review** and export
+
+**Next Action?** Type "A" to generate hero reference images, or describe what you want next.
+
+---
+
+**Production Bible Status:** ✅ Approved by Quality Assurance Guardian v3.3  
+**Character Drift Score:** 1.2 (Excellent — no revision needed)  
+**Ready for Generation:** Yes
+
+---
+
+*This example demonstrates full v3.3 capabilities including: Project Bible with locked [VARIABLES], 6–8s clip standard, frame-accurate audio, Director's Notes system, and Consistency Lock System.*
+
+---
+
+## 4. Style & Aesthetic Bible
+
+**Color Palette:**
+- Dominant: Deep teal shadows + warm practical lighting (neon signs, streetlamps)
+- Accent: Saturated red (only on the woman's dress and lips)
+- Skin tones: Cool, slightly desaturated
+
+**Lighting:**
+- Strong practical sources (neon, streetlights, rain reflections)
+- Heavy use of volumetric light through rain
+- Low-key lighting with deep shadows on faces
+
+**Camera Language:**
+- Slow push-ins and tracking shots
+- Shallow depth of field with beautiful bokeh on rain and neon
+- Frequent use of reflections (puddles, windows, eyes)
+
+**Aspect Ratio:** 2.39:1 (Cinematic)
+
+---
+
+## 5. Storyboard Beats (24 seconds)
+
+**Clip 1 (0–8s) — The Arrival**
+- Wide shot: Rainy street at night. Detective walks into frame from shadows.
+- Slow push-in as he lights a cigarette under a flickering neon sign.
+- Rain droplets catch the light beautifully.
+
+**Clip 2 (8–16s) — The Encounter**
+- Medium shot: Detective enters a dimly lit bar.
+- The Woman in Red is already there, back to camera, red dress glowing.
+- He sits across from her. Their eyes meet. Subtle tension.
+
+**Clip 3 (16–24s) — The Revelation**
+- Close-up on their hands on the table (his wedding ring visible).
+- She slides a photograph across the table.
+- Final shot: Their faces half in shadow, rain running down the window behind them.
+- Fade to black on her red lips saying: "Everyone has something to hide..."
+
+---
+
+## 6. Audio Direction
+
+**Sound Design:**
+- Constant gentle rain + distant thunder
+- Low, pulsing ambient drone (subtle, Villeneuve-style)
+- Occasional car passing with wet tire sounds
+- Very sparse dialogue — let silence and rain do the work
+
+**Music:**
+- Minimalist piano + soft strings (inspired by *Blade Runner 2049* and *Drive*)
+- No lyrics. Emotional but restrained.
+
+---
+
+## 7. Reference Images (Recommended)
+
+- Primary Character Reference: Detective (trench coat, tired eyes, wedding ring)
+- Secondary Character Reference: Woman in Red (red dress, sharp bob, pale skin)
+- Style Reference: Heavy rain at night, neon reflections, cinematic teal-orange grading
+- Mood Reference: Still from *Blade Runner 2049* or *Prisoners*
+
+---
+
+## 8. 16-Point Quality Assurance Review (v3.3)
+
+| # | Criterion | Score (1–10) | Notes |
+|---|-----------|--------------|-------|
+| 1 | Character Consistency (Detective) | 9 | Strong DNA maintained across all clips |
+| 2 | Character Consistency (Woman in Red) | 9 | Red dress and scar consistent |
+| 3 | Emotional Power | 8 | Quiet tension well executed |
+| 4 | Cinematic Excellence | 9 | Villeneuve signature clearly present |
+| 5 | Technical Feasibility | 9 | Realistic rain, lighting, and reflections |
+| 6 | Quota Efficiency | 8 | Well-optimized prompts |
+| 7 | Narrative Clarity | 8 | Story is clear despite minimal dialogue |
+| 8 | Visual Cohesion | 9 | Strong color palette and lighting continuity |
+| 9 | Audio-Visual Sync | 8 | Rain and ambient design support mood |
+| 10 | Sequence Feasibility (24s) | 9 | Excellent pacing across 3 clips |
+| 11 | Character Drift Score | 1.5 | Very low drift (excellent) |
+| 12 | Cultural / Period Accuracy | 9 | Authentic neo-noir aesthetic |
+| 13 | Innovation Score | 7 | Strong execution of established style |
+| 14 | Long-term Narrative Health | 8 | Good setup for potential longer story |
+| 15 | Consent & Safety (N/A) | — | No NSFW content |
+| 16 | Overall Artistic Integrity | 9 | High emotional and visual quality |
+
+**Final QA Score:** **8.6 / 10**
+
+**Character Drift Score:** 1.5 (Excellent — well below the 3.0 revision threshold)
+
+---
+
+## 9. Go / No-Go Decision
+
+**✅ GO — Proceed with Generation**
+
+**Recommendations before execution:**
+- Use the exact Character DNA anchors in all prompts
+- Maintain rain and neon reflections as recurring visual motifs
+- Keep dialogue minimal — let visuals and sound design carry the emotion
+- Generate all three clips in sequence using `START FULL SEQUENCE` command
+
+---
+
+## 10. One-Click Execution Commands
+
+```bash
+START FULL SEQUENCE
+GENERATE ALL REFERENCE IMAGES
+SHOW FULL BIBLE
+```
+
+---
+
+**Production Bible Status:** ✅ Approved by Quality Assurance Guardian v3.3
+
+**Next Step:** Type `START FULL SEQUENCE` to begin generation.
+
+---
+
+*This example demonstrates full v3.3 capabilities including 15-agent collaboration, Character DNA system, 16-point QA, and Director Signature application.*
