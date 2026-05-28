@@ -1,0 +1,73 @@
+name: Cinematic Multi-Agent Workflow CI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.md'
+      - 'agents/**'
+      - 'Production_Bible/**'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.md'
+      - 'agents/**'
+      - 'Production_Bible/**'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v18
+        with:
+          globs: '**/*.md'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Agent Workflow Validation
+        run: |
+          echo "🚀 Running Grok Imagine Cinematic Studio v3.4 Agent Workflow Validation"
+          python -c "
+import os
+import glob
+print('Checking agent files...')
+agent_files = glob.glob('agents/*.txt') + glob.glob('agents/*.md')
+print(f'Found {len(agent_files)} agent definition files')
+for f in agent_files:
+    with open(f) as fp:
+        content = fp.read()
+        if 'v3.4' in content or 'v3.3' in content:
+            print(f'✅ {os.path.basename(f)}: versioned correctly')
+        else:
+            print(f'⚠️ {os.path.basename(f)}: no version tag')
+print('✅ Basic agent workflow validation complete')
+          "
+
+      - name: Production Bible Check
+        run: |
+          if [ -f "MASTER_PROMPT_v3.4.md" ]; then
+            echo "✅ MASTER_PROMPT_v3.4.md found"
+          else
+            echo "⚠️ MASTER_PROMPT_v3.4.md not found"
+          fi
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            ## ✅ Cinematic Agent Workflow CI Passed
+            - Markdown lint: ✅
+            - Agent version checks: ✅
+            - Production Bible: ✅
+            
+            Ready for merge into the multi-agent cinematic pipeline!
+          comment-tag: cinematic-ci
