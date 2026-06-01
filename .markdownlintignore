@@ -1,8 +1,0 @@
-# Ignore generated or long-template files
-CHANGELOG.md
-RELEASE_NOTES*.md
-Kink_Specific_Cinematic_Template_Library*.md
-Example_Production_Bible_Example.md
-Production_Bible*.md
-*.generated.md
-docs/generated/**
