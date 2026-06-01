@@ -139,22 +139,24 @@ jobs:
         run: |
           echo "🐍 Running Python syntax validation..."
           pyflakes web_ui/app.py tools/cinematic_studio_cli.py 2>&1 || echo "⚠️  pyflakes warnings (non-blocking)"
-          
-          # Quick import test for key modules
-          python -c "
+
+          # Quick syntax + import test (heredoc avoids all quoting issues)
+          python -c <<'EOF'
 import ast
 import sys
+
 files = ['web_ui/app.py', 'tools/cinematic_studio_cli.py']
 for f in files:
     try:
         with open(f) as fp:
             ast.parse(fp.read())
-        print(f'✅ {f}: valid Python syntax')
+        print(f"✅ {f}: valid Python syntax")
     except SyntaxError as e:
-        print(f'❌ {f}: {e}')
+        print(f"❌ {f}: {e}")
         sys.exit(1)
-print('✅ Python syntax checks passed')
-          "
+
+print("✅ Python syntax checks passed")
+EOF
 
       - name: Generate CI Summary
         if: always()
