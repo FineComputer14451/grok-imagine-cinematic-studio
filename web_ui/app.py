@@ -1,183 +1,250 @@
-# web_ui/app.py
+#!/usr/bin/env python3
 """
-Grok Imagine Cinematic Studio v3.5
-Professional Multi-Agent Cinematic Production Web UI
+Grok Imagine Cinematic Studio — Enhanced Streamlit Web UI v3.5.3
+With Live Grok 4.3 API Integration
 """
 
 import streamlit as st
-import time
 from datetime import datetime
+import json
+import os
+from openai import OpenAI
 
-# Page config with custom favicon
+# ===================== GROK API INTEGRATION =====================
+def get_grok_client():
+    api_key = os.getenv("XAI_API_KEY")
+    if not api_key:
+        api_key = st.session_state.get("xai_api_key", "")
+    if not api_key:
+        return None
+    return OpenAI(
+        api_key=api_key,
+        base_url="https://api.x.ai/v1"
+    )
+# ================================================================
+
 st.set_page_config(
     page_title="Grok Imagine Cinematic Studio v3.5",
-    page_icon="assets/favicon.jpg",
+    page_icon="🎥",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# === CINEMATIC STYLING ===
-st.markdown('''
+# Custom Cinematic CSS
+st.markdown("""
 <style>
-    .stApp {
-        background: linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
-        color: #e0e0e0;
-    }
-    .cinematic-header {
-        font-size: 2.8rem;
-        font-weight: 700;
-        background: linear-gradient(90deg, #00E5FF, #FF8C42);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-    .section-header {
-        color: #00E5FF;
-        border-bottom: 2px solid #FF8C42;
-        padding-bottom: 8px;
-        margin-top: 1.5rem;
-    }
+    .main { background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%); }
+    .stApp { color: #e0e0ff; }
     .stButton>button {
-        background: linear-gradient(90deg, #00E5FF, #FF8C42);
-        color: black;
-        font-weight: 700;
+        background: linear-gradient(90deg, #6a00ff, #00d4ff);
+        color: white;
         border: none;
-        border-radius: 8px;
+        border-radius: 12px;
         padding: 12px 28px;
-        font-size: 1.05rem;
+        font-weight: 600;
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0, 229, 255, 0.4);
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #00d4ff;
+    }
+    .metric-card {
+        background: rgba(30, 30, 60, 0.8);
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid #4a4a8a;
     }
     .agent-card {
-        background: #1a1a1a;
-        border: 1px solid #00E5FF;
+        background: #1f1f3a;
         border-radius: 10px;
         padding: 12px;
         margin: 6px 0;
+        border-left: 4px solid #00d4ff;
     }
 </style>
-''', unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-# === HEADER ===
-col1, col2, col3 = st.columns([1, 3, 1])
-with col1:
-    st.image("assets/logo.jpg", width=110)
-with col2:
-    st.markdown('<h1 class="cinematic-header">🎬 Grok Imagine Cinematic Studio v3.5</h1>', unsafe_allow_html=True)
-    st.caption("The most advanced 22-agent cinematic production system • Powered by Grok 4.3 Beta")
-with col3:
-    st.metric("Active Crew", "22 Agents", delta="+7 since v3.4")
+# Header
+st.title("🎥 Grok Imagine Cinematic Studio v3.5")
+st.markdown("**22-Agent Professional Film Production System** • Powered by Grok 4.3 Beta")
 
-st.divider()
-
-# === SIDEBAR ===
+# Sidebar
 with st.sidebar:
-    st.header("🎥 Production Dashboard")
+    st.header("🎬 Production Crew")
+    st.success("✅ All 22 Agents Online")
     
-    st.subheader("Crew Status")
-    st.success("✅ All 22 agents online")
-    
-    with st.expander("View Full Crew (22 Agents)"):
+    with st.expander("View All Agents"):
         agents = [
-            "Studio Director", "Imagine Prompt Master", "Mega Production Architect",
-            "Identity Lock Specialist", "Continuity Guardian", "DoP (Director of Photography)",
-            "Performance & Emotion Director", "Sonic Architect", "Narrative Arc Strategist",
-            "Color Grading Supervisor", "VFX & SFX Supervisor", "Production Designer",
-            "Trailer & Teaser Director", "Localization Specialist", "Stunt Choreographer",
-            "Foley & Sound Designer", "Key Art Designer", "Workflow Quota Optimizer",
-            "Sequence Director", "QA Guardian", "ErosForge", "Cinematic Sequence Extender"
+            "Studio Director", "Mega Production Architect", "Imagine Prompt Master",
+            "Identity Lock Specialist", "Director of Photography", "Performance & Emotion Director",
+            "VFX & SFX Supervisor", "Production Designer", "Stunt & Action Choreographer",
+            "Sonic Architect", "Narrative Strategist", "Foley Specialist",
+            "Sequence Director", "Continuity Guardian", "QA Guardian", "Workflow Optimizer",
+            "Trailer Director", "Key Art Designer", "Localization Specialist", "Color Grading Supervisor"
         ]
         for agent in agents:
             st.markdown(f"• {agent}")
-    
-    st.divider()
-    
-    st.subheader("⚙️ Production Settings")
-    genre = st.selectbox("Genre", ["Sci-Fi Epic", "Neo-Noir Thriller", "Emotional Drama", "Action Blockbuster", "Fantasy Adventure", "Psychological Horror"])
-    director_style = st.selectbox("Director Signature", ["Denis Villeneuve", "Christopher Nolan", "Ridley Scott", "David Fincher", "Greta Gerwig", "Custom"])
-    aspect_ratio = st.select_slider("Aspect Ratio", options=["2.39:1 (Cinematic)", "1.85:1", "16:9", "4:3"])
-    quality = st.slider("Production Quality", 70, 100, 92)
-    
-    st.divider()
-    st.subheader("💰 Live Cost Simulator")
-    duration = st.slider("Target Runtime (minutes)", 5, 25, 12)
-    complexity = st.slider("Scene Complexity", 1, 10, 7)
-    
-    estimated_cost = round((duration * 0.8 + complexity * 1.2) * (quality / 100), 2)
-    st.metric("Estimated Token Cost", f"{estimated_cost:,} tokens", delta="-12% vs last run")
 
-# === MAIN CONTENT ===
-st.header("📖 Story Input")
+    st.divider()
+    st.subheader("⚙️ Production Settings")
+    
+    genre = st.selectbox("Genre", ["Sci-Fi", "Psychological Horror", "Action", "Drama", "Cyberpunk", "Epic Fantasy", "Thriller"])
+    director = st.selectbox("Director Signature", 
+        ["Denis Villeneuve", "Christopher Nolan", "David Fincher", "Roger Deakins", "Zack Snyder", "Default Cinematic"])
+    aspect_ratio = st.selectbox("Aspect Ratio", ["16:9 (Cinematic)", "2.39:1 (Anamorphic)", "9:16 (Vertical)", "1:1 (Square)"])
+    quality = st.select_slider("Quality", ["Standard", "High", "Ultra", "IMAX"])
+    duration = st.slider("Target Duration (seconds)", 15, 180, 60, step=5)
+    complexity = st.select_slider("Complexity", ["Low", "Medium", "High", "Extreme"])
+
+    # Live Cost Simulator
+    st.subheader("💰 Live Cost Estimate")
+    multipliers = {"Low": 1, "Medium": 2, "High": 4, "Extreme": 7}
+    est_cost = round(duration * multipliers[complexity] * 0.85, 2)
+    est_tokens = int(est_cost * 1250)
+    
+    col1, col2 = st.columns(2)
+    col1.metric("Est. Cost", f"${est_cost}")
+    col2.metric("Tokens", f"{est_tokens:,}")
+
+# Main Content
+st.header("📝 Project Brief")
+
 story = st.text_area(
-    "Paste or write your story idea here...",
-    height=180,
-    placeholder="A lone astronaut discovers an ancient alien artifact on a dying planet..."
+    "Describe your cinematic vision",
+    placeholder="A cyberpunk detective chases a rogue AI through neon-drenched Tokyo rooftops at midnight...",
+    height=150
 )
 
-col_a, col_b, col_c = st.columns(3)
-with col_a:
+col1, col2, col3 = st.columns(3)
+
+with col1:
     if st.button("🚀 Generate Master Prompt", use_container_width=True):
-        with st.spinner("Activating full 22-agent crew..."):
-            time.sleep(2.2)
-            st.success("✅ Master Prompt generated successfully!")
-            st.code(f"""You are the Studio Director of Grok Imagine Cinematic Studio v3.5.
-Genre: {genre}
-Director Signature: {director_style}
-Aspect Ratio: {aspect_ratio}
+        if story:
+            prompt = f"""# Grok Imagine Cinematic Studio v3.5 — ACTIVATED
 
-Story: {story[:200]}...
+**Project:** {story[:80]}...
+**Genre:** {genre}
+**Director Signature:** {director}
+**Duration:** {duration}s | **Quality:** {quality}
+**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M')}
 
-Create a complete cinematic production prompt with character consistency, emotional beats, and professional shot list.""", language="markdown")
+You are now running the full 22-agent Grok Imagine Cinematic Studio v3.5.
+Begin production immediately with a Production Bible and first clip concept.
+"""
+            st.code(prompt, language="markdown")
+            st.success("✅ Ready-to-paste prompt generated!")
+        else:
+            st.warning("Please enter a story description first.")
 
-with col_b:
+with col2:
     if st.button("🎬 Simulate Full Production", use_container_width=True):
-        with st.spinner("Running 22-agent pipeline..."):
-            progress = st.progress(0)
-            for i in range(100):
-                time.sleep(0.02)
-                progress.progress(i + 1)
+        if story:
+            with st.spinner("Engaging all 22 agents..."):
+                import time
+                progress = st.progress(0)
+                for i in range(100):
+                    time.sleep(0.02)
+                    progress.progress(i + 1)
+            
             st.balloons()
-            st.success("🎉 Full cinematic production simulation complete!")
-            st.info("Character consistency: 98% | Emotional impact: 94% | Visual coherence: 96%")
+            st.success("✅ Production Complete!")
+            
+            st.subheader("📊 Production Analytics")
+            m1, m2, m3, m4 = st.columns(4)
+            m1.metric("Consistency", "96%")
+            m2.metric("Emotional Impact", "94%")
+            m3.metric("Visual Coherence", "98%")
+            m4.metric("QA Score", "✅ GO")
+            
+            st.info("All clips passed 16-point QA. Ready for final delivery.")
+        else:
+            st.warning("Enter a project description first.")
 
-with col_c:
-    if st.button("📜 Export Production Bible", use_container_width=True):
-        st.download_button(
-            label="📥 Download Production Bible (PDF)",
-            data=f"Grok Imagine Cinematic Studio v3.5\nGenre: {genre}\nDirector: {director_style}\n\nStory: {story}",
-            file_name=f"Production_Bible_{datetime.now().strftime('%Y%m%d')}.pdf"
-        )
+with col3:
+    if st.button("📄 Export Production Bible", use_container_width=True):
+        if story:
+            bible = {
+                "title": story[:50] + "...",
+                "genre": genre,
+                "director_signature": director,
+                "duration": f"{duration}s",
+                "quality": quality,
+                "created": datetime.now().isoformat(),
+                "agents": 22,
+                "status": "Production Ready"
+            }
+            st.download_button(
+                label="⬇️ Download production_bible.json",
+                data=json.dumps(bible, indent=2),
+                file_name="production_bible.json",
+                mime="application/json"
+            )
+            st.success("Production Bible ready for download!")
+        else:
+            st.warning("Please describe your project first.")
 
-# === OUTPUT TABS ===
+# ===================== GROK API SECTION =====================
 st.divider()
-st.subheader("📊 Production Output")
+st.header("🔌 Grok API Integration (Live)")
 
-tab1, tab2, tab3, tab4 = st.tabs(["🎬 Master Prompt", "📜 Script Outline", "👥 Character Bible", "📈 Analytics"])
+col_api1, col_api2 = st.columns([2, 1])
 
-with tab1:
-    st.markdown("### Generated Cinematic Prompt")
-    st.info("Run 'Generate Master Prompt' to see output here.")
+with col_api1:
+    api_key_input = st.text_input(
+        "XAI API Key (or set XAI_API_KEY env var)",
+        type="password",
+        placeholder="xai-...",
+        key="xai_api_key"
+    )
 
-with tab2:
-    st.markdown("### 8-Sequence Script Outline")
-    st.info("Run 'Simulate Full Production' to generate detailed breakdown.")
+with col_api2:
+    if st.button("🔑 Test Connection", use_container_width=True):
+        client = get_grok_client()
+        if client:
+            try:
+                response = client.chat.completions.create(
+                    model="grok-4.3",
+                    messages=[{"role": "user", "content": "Say 'Connection successful'"}],
+                    max_tokens=10
+                )
+                st.success("✅ Connected to Grok 4.3!")
+                st.write(response.choices[0].message.content)
+            except Exception as e:
+                st.error(f"Connection failed: {e}")
+        else:
+            st.warning("Please enter your XAI API key")
 
-with tab3:
-    st.markdown("### Character Consistency Bible")
-    st.info("Identity Lock Specialist will lock characters here.")
+# Grok-Powered Cinematic Prompt Generator
+st.subheader("🎬 Generate Cinematic Prompt with Grok 4.3")
 
-with tab4:
-    st.markdown("### Production Analytics")
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Character Consistency", "98%", "+4%")
-    col2.metric("Emotional Beats", "94%", "+7%")
-    col3.metric("Visual Coherence", "96%", "+2%")
-    st.line_chart({"Emotional Arc": [20, 45, 78, 92, 85, 95, 100]})
+if st.button("✨ Generate with Real Grok API", use_container_width=True):
+    if not story:
+        st.warning("Please enter a project description above first.")
+    else:
+        client = get_grok_client()
+        if not client:
+            st.error("Please enter your XAI API key above.")
+        else:
+            with st.spinner("Grok 4.3 is crafting your cinematic prompt..."):
+                try:
+                    response = client.chat.completions.create(
+                        model="grok-4.3",
+                        messages=[
+                            {"role": "system", "content": "You are a world-class cinematic director and prompt engineer for Grok Imagine."},
+                            {"role": "user", "content": f"Create a highly detailed, cinematic prompt for this project: {story}. Include camera angles, lighting, mood, and visual style."}
+                        ],
+                        max_tokens=800,
+                        temperature=0.8
+                    )
+                    generated_prompt = response.choices[0].message.content
+                    
+                    st.success("✅ Grok 4.3 generated prompt!")
+                    st.text_area("Generated Cinematic Prompt", generated_prompt, height=200)
+                    st.code(generated_prompt, language="markdown")
+                    
+                except Exception as e:
+                    st.error(f"API Error: {str(e)}")
 
-# === FOOTER ===
+# Footer
 st.divider()
-st.caption("Built with ❤️ for cinematic AI storytelling  •  Grok Imagine Cinematic Studio v3.5  •  22-Agent Professional Film Crew")
+st.caption("Grok Imagine Cinematic Studio v3.5.3 • Enhanced Web UI + Live Grok 4.3 API • June 2026 • SuperGrokPro Recommended")
