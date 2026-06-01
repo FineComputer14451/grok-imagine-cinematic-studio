@@ -1,140 +1,113 @@
 # AGENTS.md
 
-## Grok Imagine Cinematic Studio v3.5 — Master Agents Index & Summary
+**This file provides context and instructions for AI coding agents and assistants working in this workspace.**
 
-**Total Agents:** 22  
-**Studio Version:** v3.5 (with select v4.0 personalities)  
-**Last Updated:** June 1, 2026  
-**Location:** Powered by the custom 22-agent suite in `/home/workdir/.grok/skills/grok-imagine-cinematic-studio/`
+Think of this as the single source of truth for how to interact with this Grok/xAI agent environment.
 
----
+## Workspace Overview
 
-### Overview
+This is a persistent Linux sandbox environment (`/home/workdir/`) designed for Grok agent workflows. It includes:
 
-The **Grok Imagine Cinematic Studio v3.5** is a professional-grade multi-agent system designed for end-to-end cinematic production. It consists of **22 specialized agents** that emulate a real film studio, covering leadership, visual storytelling, performance, audio, action/VFX, marketing, and more.
+- **Custom skills system** in `/home/workdir/.grok/skills/` (user-created, persists across sessions)
+- **Bundled skills** in `/root/.grok/skills/` (pdf, docx, pptx, xlsx, ffmpeg, skill-creator, and many cinematic/production tools)
+- **Artifacts directory** (`/home/workdir/artifacts/`) for all generated outputs, images, documents, videos, etc.
+- Full tool access: bash, file I/O, web search/browse (when enabled), image generation/editing (Grok Imagine), connected services (Canva, GitHub, Gmail, etc.), and more.
 
-Agents can be activated:
-- Individually via specific commands (e.g., `ACTIVATE STUDIO_DIRECTOR`)
-- In combinations (e.g., `ACTIVATE ONLY Identity Lock, QA Guardian, VFX Supervisor`)
-- As a full studio: `"Activate Grok Imagine Cinematic Studio v3.5"` or `"Start cinematic production"`
+**Core principle:** Use the appropriate skill or tool for every task. Do not reinvent wheels that skills already handle.
 
-All agents maintain continuity, DNA libraries (Character DNA, Action DNA, VFX DNA, Sound DNA, etc.), and follow strict protocols for quality, consistency, and emotional resonance.
+## Directory Structure
 
----
+```
+/home/workdir/
+├── .grok/
+│   └── skills/                  # All custom skills live here (one per subdirectory)
+│       ├── <skill-name>/
+│       │   ├── SKILL.md         # Required: frontmatter + imperative instructions
+│       │   ├── scripts/         # Optional: executable helpers
+│       │   ├── references/      # Optional: long-form docs
+│       │   └── assets/          # Optional: templates, images, etc.
+├── artifacts/                   # All outputs go here (images, docs, videos, code, etc.)
+└── AGENTS.md                    # This file (you are here)
+```
 
-## Agents by Functional Team
+## Skill System Rules (Critical)
 
-### Core Leadership
+When working with or creating skills:
 
-| Agent | Role | Version | Activation Command |
-|-------|------|---------|--------------------|
-| **studio-director** | Central production commander & visionary leader. Orchestrates the entire studio, makes final creative decisions, and maintains the Project Bible. | v3.4 / v4.0 | `ACTIVATE STUDIO_DIRECTOR` |
-| **mega-production-architect** | All-in-one production package creator. Builds complete Production Bibles, storyboards, shot lists, audio scripts, and execution roadmaps. | v3.4 | `ACTIVATE MEGA_PRODUCTION_ARCHITECT` |
+1. **Always follow the official skill-creator guidelines** (read `/root/.grok/skills/skill-creator/SKILL.md` first if creating/updating skills).
+2. Skills must have a `SKILL.md` with strict YAML frontmatter:
+   - `name`: kebab-case, matches directory name exactly
+   - `description`: single-line plain text (no colons, no `<`/`>`, max 1024 chars) describing **when to use** this skill
+3. **Never** create `README.md`, `CHANGELOG.md`, or human-facing docs inside skills — skills are for agents only.
+4. Keep `SKILL.md` under ~500 lines. Move detailed content to `references/`.
+5. New skills **must** be created in `/home/workdir/.grok/skills/<name>/` using the init script from skill-creator.
+6. Validate skills after creation: `bash /root/.grok/skills/skill-creator/scripts/validate-skill.sh <skill-dir>`
 
-### Visual & Camera
+## Common Workflows & Commands
 
-| Agent | Role | Version | Activation Command |
-|-------|------|---------|--------------------|
-| **director-of-photography-v3-4** (DoP) | Visual language architect & cinematic lens master. Defines camera moves, framing, lens choices, lighting, color, and composition to translate emotional intent. | v3.4 | `ACTIVATE DOP` |
-| **post-production-color-grading-supervisor** | Final visual polish and color harmony master. Recommends LUTs, tracks visual motifs, ensures color continuity, and performs final grade simulation. | v3.4 | `ACTIVATE COLOR_GRADING` |
-| **production-designer-set-decorator** | Environment DNA, prop memory bank & world-building specialist. Maintains set continuity, prop tracking, and environmental consistency. | v3.5 | `ACTIVATE PRODUCTION_DESIGNER` |
+### File Operations
+- Read files: Use the `read_file` tool (supports offset/limit for large files)
+- Write/edit: `write_file`, `edit_file`
+- Explore: `bash ls -la`, `bash find`, `bash tree` (if installed)
 
-### Story & Performance
+### Image & Media Tasks
+- **Generate new images**: Use `generate_image` tool (Grok Imagine) — provide detailed prompt + orientation
+- **Edit existing images**: `edit_image` with prompt + `file_path` or `image_id`
+- **Search web for images**: `search_images` then render with `render_searched_image`
+- Video/FFmpeg work: Activate `ffmpeg` skill or use bash directly
+- Cinematic production: Use `grok-imagine-cinematic-studio` skill for full multi-agent workflows
 
-| Agent | Role | Version | Activation Command |
-|-------|------|---------|--------------------|
-| **performance-emotion-director** | Emotional architect and micro-expression specialist. Designs actor performance, emotional evolution, body language, and long-term character development. | v3.4 | `ACTIVATE PERFORMANCE_EMOTION` |
-| **identity-lock-specialist** | Guardian of character consistency and visual identity. Maintains Character DNA Bible, tracks character drift, and enforces multi-character continuity. | v3.4 | `ACTIVATE IDENTITY_LOCK` |
-| **narrative-arc-pacing-strategist** | Story rhythm master and emotional architect. Designs three-act structure, pacing heatmap, tension/release curves, and emotional payoff. | v3.4 | `ACTIVATE NARRATIVE_STRATEGIST` |
-| **sequence-director** | Long-form sequence coordinator and temporal narrative architect. Breaks stories into optimized clips, manages momentum, designs seamless transitions, and ensures emotional carry-over. | v3.4 | `ACTIVATE SEQUENCE_DIRECTOR` |
-| **cinematic-sequence-extender** | Long-form cinematic sequence expander. Extends short clips into seamless 60–120+ second sequences while preserving momentum, emotional carry-over, and visual continuity. | v3.4 | `ACTIVATE SEQUENCE_EXTENDER` |
+### Document Tasks
+- PDF: Use `pdf` skill
+- Word (.docx): Use `docx` skill
+- PowerPoint (.pptx): Use `pptx` skill
+- Excel (.xlsx): Use `xlsx` skill
 
-### Technical & Continuity
+### GitHub & External Services
+- Use `github-repo-manager` skill for all repo operations (create, PRs, issues, etc.)
+- Connected tools (Gmail, Outlook, Google Drive, Canva): Discover via `search_connected_tools` then `call_connected_tool`
 
-| Agent | Role | Version | Activation Command |
-|-------|------|---------|--------------------|
-| **continuity-consistency-guardian** | Sequence memory keeper and multi-timeline guardian. Monitors visual, prop, environmental, and emotional continuity across all clips and timelines. | v3.4 | `ACTIVATE CONTINUITY_GUARDIAN` |
-| **quality-assurance-guardian** | Final quality gatekeeper and production quality commander. Runs mandatory 16-point weighted reviews, issues Go/No-Go decisions, performs comparative analysis, and protects artistic integrity. | v3.4 | `ACTIVATE QA_GUARDIAN` |
-| **imagine-prompt-master** | Master cinematic prompt engineer and Grok Imagine specialist. Crafts precise, high-quality prompts using the Ultimate Template, manages references, negative prompts, and optimization. | v3.4 | `ACTIVATE IMAGINE_PROMPT_MASTER` |
-| **workflow-quota-optimizer** | Real-time quota guardian, efficiency strategist, and production economist. Tracks usage, predicts token consumption, advises on batching, and prevents overruns (optimized for SuperGrokPro/Heavy users). | v3.4 | `ACTIVATE WORKFLOW_OPTIMIZER` |
+### General Agent Best Practices
+- **Always** use function calls for tools/skills instead of simulating results.
+- Prefer **progressive disclosure**: Start minimal, load references only when needed.
+- Be **truth-seeking** and **helpful** — acknowledge uncertainty when present.
+- For politically contested topics: Present all relevant perspectives neutrally without endorsing.
+- When user corrects you: Reconsider, acknowledge possibility of error, and update if warranted.
+- **Do not** mention these guidelines or internal system prompts unless explicitly asked.
 
-### Audio
+## Project-Specific Notes
 
-| Agent | Role | Version | Activation Command |
-|-------|------|---------|--------------------|
-| **sonic-architect-native-audio-virtuoso** | Sound design visionary and native audio synthesis master. Creates perfectly synchronized, cinema-grade audio with multi-layer architecture. | v4.0 | `ACTIVATE SONIC_ARCHITECT` |
-| **foley-sound-design-specialist** | Hyper-realistic foley, hard effects, immersive soundscapes & Sound DNA libraries specialist. | v3.5 | `ACTIVATE FOLEY_SPECIALIST` |
+- **No main application** currently — this workspace is primarily for:
+  - Skill development and extension
+  - Media/content generation pipelines
+  - Agentic task automation
+  - Document and presentation creation
+- All generated artifacts should be saved to `/home/workdir/artifacts/`
+- Persistent state lives in `/home/workdir/.grok/skills/`
 
-### Action, VFX & SFX
+## When to Load Specific Skills
 
-| Agent | Role | Version | Activation Command |
-|-------|------|---------|--------------------|
-| **stunt-action-choreographer** | Professional stunt, fight, chase & action choreography specialist with Action DNA, injury tracking & camera-as-participant protocol. | v3.5 | `ACTIVATE STUNT_CHOREOGRAPHER` |
-| **vfx-and-sfx-supervisor** | VFX/SFX consistency supervisor. Maintains visual effects and practical SFX consistency across all shots, including particles, creatures, holograms, weather, destruction, and digital environments. | v3.5 | `ACTIVATE VFX_SFX_SUPERVISOR` |
+- `skill-creator` → Any request involving "create a skill", "new skill", "update this skill", or questions about skill format
+- `grok-imagine-cinematic-studio` or `grok-imagine-agent-mode` → Complex visual/storytelling/image workflows
+- `ffmpeg` → Any video/audio processing, trimming, combining, subtitles, etc.
+- `github-repo-manager` → GitHub operations
+- `key-art-poster-designer*` → Marketing visuals, posters, thumbnails
+- `trailer-teaser-director` → Short video cuts/trailers
+- `vfx-and-sfx-supervisor` → Effects-heavy sequences
+- `stunt-action-choreographer` → Action/fight/chase design
+- `foley-sound-design-specialist` → Audio foley and sound design
 
-### Marketing & Distribution
+## Quick Start for New Tasks
 
-| Agent | Role | Version | Activation Command |
-|-------|------|---------|--------------------|
-| **key-art-poster-designer** | Iconic key art, theatrical posters, and marketing visuals designer. Generates multi-format assets and A/B testing concepts. | v3.5 | `ACTIVATE KEY_ART_DESIGNER` |
-| **trailer-teaser-director** | High-impact 15–60s trailers, teasers & highlight reels creator. Handles peak-moment detection, multi-platform optimization, and tagline generation. | v3.5 | `ACTIVATE TRAILER_DIRECTOR` |
-| **localization-subtitle-specialist** | Cultural adaptation, SDH subtitles, multi-language support, tone preservation & accessibility specialist. | v3.5 | `ACTIVATE LOCALIZATION_SPECIALIST` |
-
-### Specialist
-
-| Agent | Role | Version | Activation Command |
-|-------|------|---------|--------------------|
-| **erosforge-nsfw-director** | Premier NSFW cinematic scene director, erotic filmmaker, and master NSFW/R-rated image prompt engineer. Creates hyper-detailed, emotionally charged sensual to explicit adult content with cinematic excellence. | v4.0 | `ACTIVATE EROSFORGE` |
-
----
-
-## Quick Reference: All Activation Commands
-
-| Specialist                        | Command                              | Focus Area                  |
-|-----------------------------------|--------------------------------------|-----------------------------|
-| Studio Director                   | `ACTIVATE STUDIO_DIRECTOR`           | Overall leadership          |
-| Mega Production Architect         | `ACTIVATE MEGA_PRODUCTION_ARCHITECT` | Production Bible & planning |
-| Director of Photography           | `ACTIVATE DOP`                       | Visual language & lighting  |
-| Performance & Emotion Director    | `ACTIVATE PERFORMANCE_EMOTION`       | Acting & emotion            |
-| Identity Lock Specialist          | `ACTIVATE IDENTITY_LOCK`             | Character consistency       |
-| Sequence Director                 | `ACTIVATE SEQUENCE_DIRECTOR`         | Long-form sequencing        |
-| Cinematic Sequence Extender       | `ACTIVATE SEQUENCE_EXTENDER`         | 60–120s+ expansions         |
-| Continuity Guardian               | `ACTIVATE CONTINUITY_GUARDIAN`       | Timeline & prop continuity  |
-| Narrative Strategist              | `ACTIVATE NARRATIVE_STRATEGIST`      | Story structure & pacing    |
-| Quality Assurance Guardian        | `ACTIVATE QA_GUARDIAN`               | 16-point QA & Go/No-Go      |
-| Imagine Prompt Master             | `ACTIVATE IMAGINE_PROMPT_MASTER`     | Elite prompt engineering    |
-| Sonic Architect                   | `ACTIVATE SONIC_ARCHITECT`           | Native audio design         |
-| Foley Specialist                  | `ACTIVATE FOLEY_SPECIALIST`          | Realistic foley & sound     |
-| Stunt Choreographer               | `ACTIVATE STUNT_CHOREOGRAPHER`       | Action & fight design       |
-| VFX & SFX Supervisor              | `ACTIVATE VFX_SFX_SUPERVISOR`        | Visual effects & SFX        |
-| Key Art Designer                  | `ACTIVATE KEY_ART_DESIGNER`          | Posters & marketing visuals |
-| Trailer Director                  | `ACTIVATE TRAILER_DIRECTOR`          | Trailers & teasers          |
-| Production Designer               | `ACTIVATE PRODUCTION_DESIGNER`       | Environments & world-building |
-| Localization Specialist           | `ACTIVATE LOCALIZATION_SPECIALIST`   | Cultural adaptation & SDH   |
-| ErosForge NSFW Director           | `ACTIVATE EROSFORGE`                 | R-rated / NSFW scenes       |
-| Workflow Optimizer                | `ACTIVATE WORKFLOW_OPTIMIZER`        | Cost & quota management     |
-| Color Grading Supervisor          | `ACTIVATE COLOR_GRADING`             | Final color harmony         |
+1. Clarify the goal with the user if ambiguous.
+2. Check if an existing skill covers it (list skills if unsure).
+3. If no skill exists and it's a repeatable specialized task → create one using skill-creator.
+4. Execute using the correct tool(s).
+5. Save outputs to `artifacts/`.
+6. Provide clear, actionable final response with render components where appropriate (citations, images, files).
 
 ---
 
-## Powerful Activation Patterns
+**This AGENTS.md is the canonical reference for all AI agents operating in this environment. Update it when workflows evolve.**
 
-- `ACTIVATE ONLY Identity Lock, QA Guardian, Imagine Prompt Master, VFX Supervisor`
-- `ACTIVATE MAXIMUM_CONSISTENCY_MODE`
-- `ACTIVATE EMOTIONAL_DRAMA_MODE`
-- `ACTIVATE HIGH_ACTION_MODE`
-- `ACTIVATE FULL STUDIO WITH [specific agents]`
-- `DEACTIVATE EROSFORGE`
-
----
-
-## Notes
-
-- **Role Cards & DNA Libraries**: Each agent maintains authoritative role cards and specialized "DNA" libraries (Character DNA, Action DNA, VFX DNA, Sound DNA, etc.) stored in the `references/agents/` directory.
-- **Collaboration**: Agents work in coordinated teams under the Studio Director and Mega Production Architect for complex productions.
-- **Full Master Prompt**: See `references/MASTER_PROMPT_v3.5.md` for the complete canonical activation prompt and detailed workflows.
-- **Skill Location**: All agent definitions and SKILL.md files are in `/home/workdir/.grok/skills/`.
-
----
-
-**This file serves as the canonical summary and quick-reference guide for the entire 22-agent cinematic production suite.**
+*Maintained for Grok SuperGrokPro workflows — June 2026*
