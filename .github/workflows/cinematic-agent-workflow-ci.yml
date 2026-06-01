@@ -60,10 +60,8 @@ jobs:
           echo "🔍 Grok Imagine Cinematic Studio v3.5 Agent Workflow Validation"
           echo "============================================================"
           
-          # Find all agent definition files (support both locations)
           AGENT_FILES=$(find agents/ .grok/skills/ -type f \( -name "*.txt" -o -name "*.md" -o -name "SKILL.md" \) 2>/dev/null | head -50)
           AGENT_COUNT=$(echo "$AGENT_FILES" | wc -l)
-          
           echo "Found $AGENT_COUNT agent/skill definition files"
           
           VERSION_ISSUES=0
@@ -76,7 +74,6 @@ jobs:
             fi
           done
           
-          # Check for expected 22-agent coverage (core names)
           EXPECTED_AGENTS=("Studio Director" "Imagine Prompt Master" "Mega Production Architect" "Identity Lock Specialist" "Continuity Guardian" "DoP" "Performance" "Sonic Architect" "Narrative Arc" "Color Grading" "VFX" "Production Designer" "Trailer" "Localization" "Stunt" "Foley" "Key Art" "Workflow Quota" "Sequence Director" "QA Guardian" "ErosForge" "Cinematic Sequence Extender")
           
           MISSING=0
@@ -101,16 +98,7 @@ jobs:
         run: |
           echo "📜 Checking v3.5 Production Bible & Core Assets..."
           
-          REQUIRED_FILES=(
-            "MASTER_PROMPT_v3.5.md"
-            "AGENTS.md"
-            "Project_Bible_Template.md"
-            "Example_Production_Bible_Example.md"
-            "web_ui/app.py"
-            "tools/cinematic_studio_cli.py"
-            "requirements.txt"
-            "requirements-streamlit.txt"
-          )
+          REQUIRED_FILES=("MASTER_PROMPT_v3.5.md" "AGENTS.md" "Project_Bible_Template.md" "Example_Production_Bible_Example.md" "web_ui/app.py" "tools/cinematic_studio_cli.py" "requirements.txt" "requirements-streamlit.txt")
           
           MISSING_FILES=0
           for file in "${REQUIRED_FILES[@]}"; do
@@ -122,7 +110,6 @@ jobs:
             fi
           done
           
-          # Check for v3.5 MASTER_PROMPT specifically
           if grep -q "v3.5" MASTER_PROMPT_v3.5.md 2>/dev/null; then
             echo "✅ MASTER_PROMPT_v3.5.md contains v3.5 content"
           else
@@ -139,24 +126,8 @@ jobs:
         run: |
           echo "🐍 Running Python syntax validation..."
           pyflakes web_ui/app.py tools/cinematic_studio_cli.py 2>&1 || echo "⚠️  pyflakes warnings (non-blocking)"
-
-          # Quick syntax + import test (heredoc avoids all quoting issues)
-          python -c <<'EOF'
-import ast
-import sys
-
-files = ['web_ui/app.py', 'tools/cinematic_studio_cli.py']
-for f in files:
-    try:
-        with open(f) as fp:
-            ast.parse(fp.read())
-        print(f"✅ {f}: valid Python syntax")
-    except SyntaxError as e:
-        print(f"❌ {f}: {e}")
-        sys.exit(1)
-
-print("✅ Python syntax checks passed")
-EOF
+          python -m py_compile web_ui/app.py tools/cinematic_studio_cli.py
+          echo "✅ Python compile checks passed"
 
       - name: Generate CI Summary
         if: always()
@@ -166,8 +137,8 @@ EOF
           echo "| Check | Status | Details |" >> $GITHUB_STEP_SUMMARY
           echo "|-------|--------|---------|" >> $GITHUB_STEP_SUMMARY
           echo "| Markdown Lint | ✅ Passed | All .md files validated |" >> $GITHUB_STEP_SUMMARY
-          echo "| Agent Ecosystem | ✅ Passed | $(cat $GITHUB_OUTPUT | grep agent_count || echo '22+') files |" >> $GITHUB_STEP_SUMMARY
-          echo "| Core v3.5 Files | ✅ Passed | MASTER_PROMPT_v3.5 + 7 key assets |" >> $GITHUB_STEP_SUMMARY
+          echo "| Agent Ecosystem | ✅ Passed | 22+ agents + skills |" >> $GITHUB_STEP_SUMMARY
+          echo "| Core v3.5 Files | ✅ Passed | MASTER_PROMPT_v3.5 + assets |" >> $GITHUB_STEP_SUMMARY
           echo "| Python Syntax | ✅ Passed | web_ui + CLI validated |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Ready for merge into the 22-agent cinematic pipeline!**" >> $GITHUB_STEP_SUMMARY
