@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.jpg" alt="Grok Imagine Cinematic Studio Banner" width="100%">
+</p>
+
 # 🎬 Grok Imagine Cinematic Studio v3.5
 
 **The most advanced multi-agent cinematic production system for Grok 4.3 Beta**
