@@ -146,14 +146,48 @@ with col2:
             st.balloons()
             st.success("✅ Simulation Complete")
 
-            st.subheader("📊 Results")
-            m1, m2, m3, m4 = st.columns(4)
-            m1.metric("Consistency", "96%")
-            m2.metric("Emotional Impact", "94%")
-            m3.metric("Visual Quality", "98%")
-            m4.metric("QA Result", "✅ GO")
+            st.subheader("📊 Structured Production Summary")
 
-            st.info("This is a simulation. Use the Grok API button below for real generation.")
+            # Generate structured simulation output
+            st.markdown(f"""
+**Project:** {story[:80]}...
+
+**Genre:** {genre}  
+**Director Signature:** {director}  
+**Target Duration:** {duration}s  
+**Complexity:** {complexity}
+
+---
+
+### Production Phases (Simulated)
+
+**Phase 1: Pre-Production**
+- **Mega Production Architect** → Production Bible generated
+- **Identity Lock Specialist** → Character DNA locked
+- **Production Designer** → World & set references created
+
+**Phase 2: Core Production**
+- **Director of Photography** + **Performance & Emotion Director** → Key sequences directed
+- **Cinematic Sequence Extender** → Long-form expansion applied
+- **Continuity Guardian** + **QA Guardian** → Consistency & quality checks passed
+
+**Phase 3: Polish & Delivery**
+- **Sonic Architect** + **Foley Specialist** → Audio design completed
+- **Key Art Designer** + **Trailer Director** → Marketing assets generated
+- **Quality Assurance Guardian** → Final 16-point QA: **PASSED**
+
+---
+
+### Quality Metrics
+""")
+
+            col_a, col_b, col_c, col_d = st.columns(4)
+            col_a.metric("Character Consistency", "96%")
+            col_b.metric("Emotional Impact", "94%")
+            col_c.metric("Visual Coherence", "97%")
+            col_d.metric("Overall QA Score", "✅ GO")
+
+            st.info("This is an enhanced simulation. For real multi-agent generation, use the Grok API button below or the CLI.")
         else:
             st.warning("Enter a project description first.")
 
