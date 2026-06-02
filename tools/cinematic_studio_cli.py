@@ -125,7 +125,7 @@ def version():
     """Show CLI version"""
     console.print("[bold]cinematic-studio[/bold] v3.5.3-enhanced (June 2026)")
 
-@app.command()
+@app.command(name="list-agents")
 def list_agents():
     """List all 22 agents grouped by category"""
     table = Table(title="🎬 Grok Imagine Cinematic Studio — 22 Agents", box=box.ROUNDED)
@@ -139,7 +139,7 @@ def list_agents():
     console.print(table)
     console.print("\n[italic dim]Total: 22 specialized agents ready for production[/italic dim]")
 
-@app.command()
+@app.command(name="list-role-cards")
 def list_role_cards():
     """List all available Role Cards in references/agents/"""
     if not AGENTS_DIR.exists():
@@ -157,7 +157,7 @@ def list_role_cards():
     console.print(table)
     console.print(f"\n[green]Total Role Cards:[/green] {len(cards)}")
 
-@app.command()
+@app.command(name="show-role-card")
 def show_role_card(
     agent: str = typer.Argument(..., help="Agent name or partial match (e.g. 'Identity Lock' or 'ErosForge')")
 ):
@@ -171,7 +171,7 @@ def show_role_card(
     content = card_path.read_text()
     console.print(Panel(Markdown(content[:3000]), title=f"📋 {card_path.stem}", border_style="blue", expand=False))
 
-@app.command()
+@app.command(name="generate-prompt")
 def generate_prompt(
     story: str = typer.Argument(..., help="Your story, scene, or project description"),
     signature: str = typer.Option("default", "--signature", "-s", help="Director style"),
@@ -202,7 +202,7 @@ Use the full power of the 22 specialized agents with their Role Cards.
     else:
         console.print(Panel(prompt, title="📜 Ready-to-Paste Prompt", border_style="green"))
 
-@app.command()
+@app.command(name="cost-simulate")
 def cost_simulate(
     duration: int = typer.Option(60, "--duration", "-d", help="Target duration in seconds"),
     complexity: str = typer.Option("medium", "--complexity", "-c", help="low / medium / high / extreme")
@@ -222,7 +222,7 @@ def cost_simulate(
 
     console.print(table)
 
-@app.command()
+@app.command(name="create-bible")
 def create_bible(
     title: str = typer.Argument(..., help="Project title"),
     genre: str = typer.Option("Cinematic", "--genre", "-g"),
@@ -291,7 +291,7 @@ def memory(
     else:
         console.print("[red]Unknown action. Use: add / list / load[/red]")
 
-@app.command()
+@app.command(name="report")
 def report(
     output: str = typer.Option("production_report.pdf", "--output", "-o", help="Output PDF filename")
 ):
@@ -315,7 +315,7 @@ def report(
     pdf.output(output)
     console.print(f"[green]✅ PDF Report generated:[/green] {output}")
 
-@app.command()
+@app.command(name="validate")
 def validate():
     """Run basic local validation (similar to CI)"""
     console.print("[bold]🔍 Running local validation...[/bold]\n")
