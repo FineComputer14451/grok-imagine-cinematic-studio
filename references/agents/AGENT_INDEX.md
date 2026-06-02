@@ -69,6 +69,51 @@ Then follow up with:
 
 ---
 
+## Agent-Specific Activation Examples
+
+### Studio Director v3.5
+**Primary:** `Activate Studio Director` or `Enter full production mode`
+**Power commands:** `MAXIMUM CONSISTENCY MODE`, `EMOTIONAL DRAMA MODE`, `HIGH ACTION MODE`, `INTIMATE CINEMATIC MODE`
+**Common pattern:** `ACTIVATE ONLY Studio Director, Imagine Prompt Master, Director of Photography`
+
+### Identity Lock Specialist v3.5
+**Primary:** `Activate Identity Lock Specialist` or `Load character DNA`
+**Power commands:** `STRICT IDENTITY LOCK`, `ALLOW CONTROLLED EVOLUTION`
+**Common pattern:** `ACTIVATE ONLY Identity Lock Specialist, Character DNA Extractor v3.5, Continuity Guardian`
+
+### Sequence Director v3.5 + Cinematic Sequence Extender v3.5
+**Primary:** `Activate Sequence Director` or `Build cinematic sequence`
+**Power commands:** `EXTEND FROM FRAME`, `MULTI CLIP SEQUENCE`, `MOMENTUM VECTOR MODE`
+**Common pattern:** `ACTIVATE ONLY Sequence Director, Cinematic Sequence Extender, Continuity Guardian`
+
+### ErosForge NSFW Director v3.5
+**Primary:** `Activate ErosForge NSFW Director` or `NSFW cinematic mode`
+**Power commands:** `ARTISTIC EROTICISM`, `MAXIMUM SENSUAL DETAIL`, `TASTEFUL EXPLICIT`
+**Common pattern:** `ACTIVATE ONLY ErosForge NSFW Director, Identity Lock Specialist, Director of Photography`
+**Note:** Best paired with Character DNA Extractor when starting new erotic characters.
+
+### Director of Photography v3.5
+**Primary:** `Activate Director of Photography` or `Cinematic lighting mode`
+**Power commands:** `DRAMATIC SIDE LIGHTING`, `NOIR MODE`, `TEAL ORANGE GRADE`, `GOLDEN HOUR`
+**Common pattern:** `ACTIVATE ONLY Director of Photography, Studio Director, Imagine Prompt Master`
+
+### Performance Emotion Director v3.5
+**Primary:** `Activate Performance Emotion Director`
+**Power commands:** `MICRO EXPRESSION MODE`, `EMOTIONAL ARC FOCUS`
+**Common pattern:** `ACTIVATE ONLY Performance Emotion Director, Identity Lock Specialist, Studio Director`
+
+### Imagine Prompt Master v3.5
+**Primary:** `Activate Imagine Prompt Master` or `Optimize prompts`
+**Power commands:** `MAXIMUM PROMPT EFFICIENCY`, `CINEMATIC SHOT LANGUAGE`
+**Common pattern:** Works best when activated alongside Studio Director or any specialist.
+
+### Workflow & Quota Optimizer v3.5
+**Primary:** `Activate Workflow & Quota Optimizer`
+**Power commands:** `SHOW QUOTA BREAKDOWN`, `OPTIMIZE FOR QUALITY`, `CHEAPEST HIGH QUALITY`
+**Usage:** Activate at the start of large batches or when monitoring credit usage.
+
+---
+
 ## Adding New Custom Agents
 
 1. Draft the new Role Card using the `custom-grok-cinematic-agent` skill.
@@ -76,4 +121,4 @@ Then follow up with:
 3. Update this `AGENT_INDEX.md` table (add row in the appropriate section + update Last Updated date).
 4. (Optional) Add activation examples or integration notes to the relevant production bibles.
 
-**Last Updated:** June 02, 2026 — Added **Character DNA Extractor v3.5 — Master Identity Architect** + activation examples
+**Last Updated:** June 02, 2026 — Expanded Agent-Specific Activation Examples section with Studio Director, Identity Lock, Sequence Director, ErosForge NSFW Director, and key supporting agents
