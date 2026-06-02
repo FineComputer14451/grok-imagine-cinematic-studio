@@ -10,75 +10,20 @@
 
 ## Most Common Production Presets
 
-Quick-start activation patterns for the workflows you use most often.
+Quick-start activation patterns for the workflows you use most often. Use the table below for fast reference, then expand any preset for full details.
 
-### 1. New Character Onboarding (Recommended Starter)
-**Goal:** Extract DNA from reference images and lock the character for the entire production.
-**Activation:**
-```
-ACTIVATE ONLY Character DNA Extractor v3.5, Identity Lock Specialist, Studio Director
-```
-**Follow-up commands:**
-- `Load this DNA into identity-lock-specialist and begin first scene`
-- `Generate character design sheet variations`
+| # | Preset | Goal | Key Agents | Activation Command | Notes |
+|---|--------|------|------------|--------------------|-------|
+| 1 | **New Character Onboarding** | Extract DNA + lock identity for new/recent character | Character DNA Extractor v3.5<br>Identity Lock Specialist<br>Studio Director | `ACTIVATE ONLY Character DNA Extractor v3.5, Identity Lock Specialist, Studio Director` | Best starting point for any new project. Follow with `Load this DNA into identity-lock-specialist` |
+| 2 | **Standard Cinematic Scene** | Begin high-quality cinematic shot or short sequence | Studio Director<br>Imagine Prompt Master<br>Director of Photography<br>Identity Lock Specialist | `ACTIVATE ONLY Studio Director, Imagine Prompt Master, Director of Photography, Identity Lock Specialist` | Core everyday workflow |
+| 3 | **NSFW / Erotic Scene** | Artistic erotic or intimate cinematic sequences | ErosForge NSFW Director<br>Identity Lock Specialist<br>Director of Photography<br>Character DNA Extractor v3.5 | `ACTIVATE ONLY ErosForge NSFW Director, Identity Lock Specialist, Director of Photography, Character DNA Extractor v3.5` | Use `ARTISTIC EROTICISM` or `MAXIMUM SENSUAL DETAIL`. Always pair with DNA Extractor for consistency |
+| 4 | **Long-Form Sequence / Video** | Build or extend longer sequences with strong continuity | Sequence Director<br>Cinematic Sequence Extender<br>Continuity Guardian<br>Identity Lock Specialist | `ACTIVATE ONLY Sequence Director, Cinematic Sequence Extender, Continuity Guardian, Identity Lock Specialist` | Use `EXTEND FROM FRAME` or `MULTI CLIP SEQUENCE` |
+| 5 | **Trailer or Teaser** | High-impact short-form cinematic content (15–90s) | Trailer & Teaser Director<br>Studio Director<br>Imagine Prompt Master<br>Key Art & Poster Designer | `ACTIVATE ONLY Trailer & Teaser Director, Studio Director, Imagine Prompt Master, Key Art & Poster Designer` | Great for `HIGH IMPACT HOOK` or `EMOTIONAL TRAILER PACING` |
+| 6 | **Full Production Kickoff** | Start complete multi-scene cinematic project | Studio Director<br>Workflow & Quota Optimizer<br>Imagine Prompt Master<br>Identity Lock Specialist | `ACTIVATE ONLY Studio Director, Workflow & Quota Optimizer, Imagine Prompt Master, Identity Lock Specialist` | Add specialists (DoP, Performance Emotion Director, etc.) as needed |
+| 7 | **Key Art + Marketing** | Theatrical key art, posters, and teaser visuals | Key Art & Poster Designer<br>Studio Director<br>Director of Photography | `ACTIVATE ONLY Key Art & Poster Designer, Studio Director, Director of Photography` | Excellent for project covers and marketing |
+| 8 | **Quota-Efficient Large Batch** | Maximize quality while controlling credit usage | Workflow & Quota Optimizer<br>Studio Director<br>Imagine Prompt Master | `ACTIVATE ONLY Workflow & Quota Optimizer, Studio Director, Imagine Prompt Master` | Activate first on big sessions. Use `OPTIMIZE FOR QUALITY` or `CHEAPEST HIGH QUALITY` |
 
-### 2. Standard Cinematic Scene / Sequence Start
-**Goal:** Begin a new high-quality cinematic shot or short sequence.
-**Activation:**
-```
-ACTIVATE ONLY Studio Director, Imagine Prompt Master, Director of Photography, Identity Lock Specialist
-```
-**Follow-up:** `Begin scene [scene description]` or `Create sequence breakdown`
-
-### 3. NSFW / Erotic Cinematic Scene
-**Goal:** Create artistic, consistent erotic or intimate sequences.
-**Activation:**
-```
-ACTIVATE ONLY ErosForge NSFW Director, Identity Lock Specialist, Director of Photography, Character DNA Extractor v3.5
-```
-**Power mode:** `ARTISTIC EROTICISM` or `MAXIMUM SENSUAL DETAIL`
-**Note:** Always start with Character DNA Extractor if using a new or recently updated character.
-
-### 4. Long-Form Sequence / Video Extension
-**Goal:** Build or extend longer cinematic sequences with strong continuity.
-**Activation:**
-```
-ACTIVATE ONLY Sequence Director, Cinematic Sequence Extender, Continuity Guardian, Identity Lock Specialist
-```
-**Power commands:** `EXTEND FROM FRAME` or `MULTI CLIP SEQUENCE`
-
-### 5. Trailer or Teaser Production
-**Goal:** Create high-impact short-form cinematic content (15–90 seconds).
-**Activation:**
-```
-ACTIVATE ONLY Trailer & Teaser Director, Studio Director, Imagine Prompt Master, Key Art & Poster Designer
-```
-**Power mode:** `HIGH IMPACT HOOK` or `EMOTIONAL TRAILER PACING`
-
-### 6. Full Production Kickoff (Large Project)
-**Goal:** Start a complete multi-scene cinematic production with quota awareness.
-**Activation:**
-```
-ACTIVATE ONLY Studio Director, Workflow & Quota Optimizer, Imagine Prompt Master, Identity Lock Specialist
-```
-**Then add specialists as needed:** Director of Photography, Performance Emotion Director, etc.
-
-### 7. Key Art + Marketing Package
-**Goal:** Generate theatrical key art, posters, and teaser visuals.
-**Activation:**
-```
-ACTIVATE ONLY Key Art & Poster Designer, Studio Director, Director of Photography
-```
-**Follow-up:** `Create theatrical poster` or `Generate multiple key art variations`
-
-### 8. Quota-Efficient Large Batch
-**Goal:** Maximize quality while controlling credit usage on big projects.
-**Activation:**
-```
-ACTIVATE ONLY Workflow & Quota Optimizer, Studio Director, Imagine Prompt Master
-```
-**Power command:** `OPTIMIZE FOR QUALITY` or `CHEAPEST HIGH QUALITY`
-**Tip:** Activate this first before heavy generation sessions.
+**Tip:** Click any agent name in the tables below to jump to its detailed Role Card and activation examples.
 
 ---
 
@@ -233,4 +178,4 @@ Then follow up with:
 3. Update this `AGENT_INDEX.md` table (add row in the appropriate section + update Last Updated date).
 4. (Optional) Add activation examples or integration notes to the relevant production bibles.
 
-**Last Updated:** June 02, 2026 — Added "Most Common Production Presets" section at the top with 8 ready-to-use workflows
+**Last Updated:** June 02, 2026 — Converted Most Common Production Presets into a clean summary table for faster reference
