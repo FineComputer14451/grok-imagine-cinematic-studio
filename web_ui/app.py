@@ -84,6 +84,38 @@ with st.sidebar:
     else:
         st.warning("references/agents/ not found")
 
+    # Memory / Character DNA Section
+    st.subheader("🧠 Memory / Character DNA")
+    
+    # Initialize memory in session state
+    if "memory" not in st.session_state:
+        st.session_state.memory = {}
+    
+    with st.expander("Add New Memory Entry", expanded=False):
+        mem_name = st.text_input("Name / Character", placeholder="Elena Voss or PROJECT_THEME")
+        mem_value = st.text_area("Description / DNA", placeholder="Silver-gray hair, quiet confidence, recently exploring desire...", height=80)
+        
+        if st.button("💾 Save Memory Entry", use_container_width=True):
+            if mem_name and mem_value:
+                st.session_state.memory[mem_name] = mem_value
+                st.success(f"✅ Saved: {mem_name}")
+                st.rerun()
+            else:
+                st.warning("Please provide both Name and Description")
+    
+    # Display existing memory
+    if st.session_state.memory:
+        with st.expander(f"📋 Saved Entries ({len(st.session_state.memory)})", expanded=True):
+            for name, value in st.session_state.memory.items():
+                st.markdown(f"**{name}**")
+                st.caption(value[:150] + "..." if len(value) > 150 else value)
+            
+            if st.button("🗑️ Clear All Memory", use_container_width=True):
+                st.session_state.memory = {}
+                st.rerun()
+    else:
+        st.caption("No memory entries yet. Add characters, themes, or project variables above.")
+
     st.divider()
 
     # Production Settings
