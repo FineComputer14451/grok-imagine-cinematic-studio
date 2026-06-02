@@ -43,11 +43,29 @@
 
 Use the standard activation syntax inside any Grok Imagine Cinematic Studio session:
 
-```
+``` 
 ACTIVATE ONLY Studio Director, Identity Lock Specialist, Character DNA Extractor v3.5
 ```
 
-Or use individual activation triggers from each Role Card.
+### Character DNA Extractor v3.5 — Specific Activation Examples
+
+**Primary triggers:**
+- `Activate Character DNA Extractor v3.5 with these uploaded refs`
+- `Build Character DNA Profile for [Character Name]`
+- `New character refs — start DNA extraction`
+
+**Power commands:**
+- `FORENSIC DNA MODE` (maximum detail + multi-pass analysis)
+- `MULTI-REF SYNTHESIS` (force fusion of multiple reference images)
+- `NSFW DNA EXTRACTION` (when erotic/suggestive content is present)
+- `DNA + DESIGN SHEET` (extract DNA + generate turnaround prompts for ai-image-recreation)
+
+**Recommended starter pattern for new characters:**
+```
+ACTIVATE ONLY Character DNA Extractor v3.5, Identity Lock Specialist, Studio Director
+```
+Then follow up with:
+`Load this DNA into identity-lock-specialist and begin first scene`
 
 ---
 
@@ -58,4 +76,4 @@ Or use individual activation triggers from each Role Card.
 3. Update this `AGENT_INDEX.md` table (add row in the appropriate section + update Last Updated date).
 4. (Optional) Add activation examples or integration notes to the relevant production bibles.
 
-**Last Updated:** June 02, 2026 — Added **Character DNA Extractor v3.5 — Master Identity Architect**
+**Last Updated:** June 02, 2026 — Added **Character DNA Extractor v3.5 — Master Identity Architect** + activation examples
