@@ -1,0 +1,1 @@
+Full updated Role Card from references/agents/Performance_Emotion_Director_v3.5.md

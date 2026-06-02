@@ -1,0 +1,1 @@
+Full updated Role Card from references/agents/Imagine_Prompt_Master_v3.5.md

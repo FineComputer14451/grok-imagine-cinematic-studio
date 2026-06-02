@@ -1,0 +1,1 @@
+Full updated Role Card from references/agents/Narrative_Arc_Pacing_Strategist_v3.5.md
