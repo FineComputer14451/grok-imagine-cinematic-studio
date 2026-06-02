@@ -195,15 +195,36 @@ with col3:
     if st.button("📄 Export Production Bible", use_container_width=True):
         if story:
             bible = {
-                "title": story[:70],
+                "project_title": story[:80],
                 "genre": genre,
-                "director": director,
-                "duration": f"{duration}s",
+                "director_signature": director,
+                "target_duration_seconds": duration,
                 "complexity": complexity,
-                "agents": 22,
-                "role_cards": "references/agents/",
+                "total_agents": 22,
+                "role_cards_source": "references/agents/",
+                "locked_variables": {
+                    "PROJECT_TITLE": story[:60],
+                    "GENRE": genre,
+                    "DIRECTOR_SIGNATURE": director,
+                    "DURATION": f"{duration}s"
+                },
+                "key_agents_involved": [
+                    "Mega Production Architect",
+                    "Identity Lock Specialist",
+                    "Director of Photography",
+                    "Performance & Emotion Director",
+                    "Cinematic Sequence Extender",
+                    "Quality Assurance Guardian"
+                ],
+                "recommended_phases": [
+                    "Pre-Production (Bible + Character DNA)",
+                    "Core Production (Direction + Extension)",
+                    "Polish & Delivery (Audio + Marketing + QA)"
+                ],
                 "created": datetime.now().isoformat(),
-                "status": "Ready"
+                "version": "3.5.5",
+                "status": "Ready for production",
+                "notes": "Generated via Grok Imagine Cinematic Studio Web UI. Use CLI for advanced memory & PDF reports."
             }
             st.download_button(
                 "⬇️ Download production_bible.json",
@@ -211,6 +232,7 @@ with col3:
                 file_name="production_bible.json",
                 mime="application/json"
             )
+            st.success("✅ Rich Production Bible exported")
         else:
             st.warning("Describe your project first.")
 
