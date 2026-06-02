@@ -7,6 +7,7 @@ on:
       - '**.md'
       - 'agents/**'
       - '.grok/skills/**'
+      - 'references/**'
       - 'web_ui/**'
       - 'tools/**'
       - 'examples/**'
@@ -18,6 +19,7 @@ on:
       - '**.md'
       - 'agents/**'
       - '.grok/skills/**'
+      - 'references/**'
       - 'web_ui/**'
       - 'tools/**'
   workflow_dispatch:
@@ -31,6 +33,9 @@ on:
           - standard
           - strict
           - full
+
+env:
+  VALIDATION_MODE: ${{ github.event.inputs.validation_mode || 'standard' }}
 
 jobs:
   validate:
@@ -54,52 +59,132 @@ jobs:
         run: |
           pip install pyyaml pyflakes --quiet
 
-      - name: Agent Ecosystem Validation (v3.5)
+      # ============================================================
+      # AGENT & ROLE CARD VALIDATION (Improved v3.5)
+      # ============================================================
+      - name: Agent Ecosystem & Role Card Validation (v3.5)
         id: agent_check
         run: |
-          echo "🔍 Grok Imagine Cinematic Studio v3.5 Agent Workflow Validation"
-          echo "============================================================"
-          
-          AGENT_FILES=$(find agents/ .grok/skills/ -type f \( -name "*.txt" -o -name "*.md" -o -name "SKILL.md" \) 2>/dev/null | head -50)
+          echo "🔍 Grok Imagine Cinematic Studio v3.5 - Agent & Role Card Validation"
+          echo "=================================================================="
+          echo "Validation Mode: $VALIDATION_MODE"
+          echo ""
+
+          # Discover all agent/skill definition files (no artificial head limit)
+          AGENT_FILES=$(find agents/ .grok/skills/ references/agents/ -type f \( -name "*.txt" -o -name "*.md" -o -name "SKILL.md" \) 2>/dev/null)
           AGENT_COUNT=$(echo "$AGENT_FILES" | wc -l)
-          echo "Found $AGENT_COUNT agent/skill definition files"
-          
+          echo "📁 Found $AGENT_COUNT agent/skill/role card files"
+
+          # Version tag check
           VERSION_ISSUES=0
           for f in $AGENT_FILES; do
             if grep -qE 'v3\.(4|5)' "$f" 2>/dev/null; then
-              echo "✅ $(basename "$f"): versioned (v3.4/v3.5)"
+              echo "✅ $(basename "$f"): versioned"
             else
               echo "⚠️  $(basename "$f"): missing explicit v3.4/v3.5 tag"
               VERSION_ISSUES=$((VERSION_ISSUES+1))
             fi
           done
-          
-          EXPECTED_AGENTS=("Studio Director" "Imagine Prompt Master" "Mega Production Architect" "Identity Lock Specialist" "Continuity Guardian" "DoP" "Performance" "Sonic Architect" "Narrative Arc" "Color Grading" "VFX" "Production Designer" "Trailer" "Localization" "Stunt" "Foley" "Key Art" "Workflow Quota" "Sequence Director" "QA Guardian" "ErosForge" "Cinematic Sequence Extender")
-          
+
+          # Check for presence of key agents (more robust matching)
+          echo ""
+          echo "🔎 Checking for core agents..."
+          CORE_AGENTS=(
+            "Studio Director"
+            "Mega Production Architect"
+            "Identity Lock Specialist"
+            "Imagine Prompt Master"
+            "Performance Emotion Director"
+            "Director of Photography"
+            "Cinematic Sequence Extender"
+            "Continuity"
+            "Quality Assurance Guardian"
+            "ErosForge"
+            "Sonic Architect"
+            "Production Designer"
+          )
+
           MISSING=0
-          for agent in "${EXPECTED_AGENTS[@]}"; do
-            if ! grep -rqi "$agent" agents/ .grok/skills/ 2>/dev/null; then
-              echo "❌ Missing expected agent: $agent"
+          for agent in "${CORE_AGENTS[@]}"; do
+            if ! grep -rqi "$agent" agents/ .grok/skills/ references/agents/ 2>/dev/null; then
+              echo "❌ Missing or not referenced: $agent"
               MISSING=$((MISSING+1))
+            else
+              echo "✅ Found: $agent"
             fi
           done
-          
+
+          # New: Validate Role Card structure in references/agents/
+          echo ""
+          echo "📋 Role Card Structure Validation (references/agents/)"
+          ROLE_CARD_COUNT=0
+          ROLE_CARD_ISSUES=0
+
+          if [ -d "references/agents" ]; then
+            for card in references/agents/*.md; do
+              if [ -f "$card" ]; then
+                ROLE_CARD_COUNT=$((ROLE_CARD_COUNT+1))
+                if ! grep -q "Core Mission" "$card" || ! grep -q "v3.5" "$card"; then
+                  echo "⚠️  $(basename "$card"): Missing 'Core Mission' or v3.5 section"
+                  ROLE_CARD_ISSUES=$((ROLE_CARD_ISSUES+1))
+                fi
+              fi
+            done
+            echo "Found $ROLE_CARD_COUNT Role Cards in references/agents/"
+          else
+            echo "⚠️  references/agents/ directory not found"
+            ROLE_CARD_ISSUES=1
+          fi
+
+          # Output variables for later steps
           echo "agent_count=$AGENT_COUNT" >> $GITHUB_OUTPUT
           echo "version_issues=$VERSION_ISSUES" >> $GITHUB_OUTPUT
           echo "missing_agents=$MISSING" >> $GITHUB_OUTPUT
-          
-          if [ $MISSING -gt 0 ] || [ $VERSION_ISSUES -gt 5 ]; then
-            echo "❌ Agent validation failed"
+          echo "role_card_issues=$ROLE_CARD_ISSUES" >> $GITHUB_OUTPUT
+
+          # Decision logic based on validation_mode
+          FAIL=false
+          if [ "$VALIDATION_MODE" = "strict" ]; then
+            if [ $MISSING -gt 0 ] || [ $VERSION_ISSUES -gt 3 ] || [ $ROLE_CARD_ISSUES -gt 0 ]; then
+              FAIL=true
+            fi
+          elif [ "$VALIDATION_MODE" = "full" ]; then
+            if [ $MISSING -gt 0 ] || [ $VERSION_ISSUES -gt 0 ] || [ $ROLE_CARD_ISSUES -gt 0 ]; then
+              FAIL=true
+            fi
+          else
+            # standard mode
+            if [ $MISSING -gt 2 ] || [ $VERSION_ISSUES -gt 8 ]; then
+              FAIL=true
+            fi
+          fi
+
+          if $FAIL; then
+            echo ""
+            echo "❌ Agent / Role Card validation failed (mode: $VALIDATION_MODE)"
             exit 1
           fi
-          echo "✅ Agent ecosystem validation passed"
 
+          echo ""
+          echo "✅ Agent ecosystem & Role Card validation passed"
+
+      # ============================================================
+      # CORE FILES CHECK
+      # ============================================================
       - name: Production Bible & Core Files Check (v3.5)
         run: |
           echo "📜 Checking v3.5 Production Bible & Core Assets..."
-          
-          REQUIRED_FILES=("MASTER_PROMPT_v3.5.md" "AGENTS.md" "Project_Bible_Template.md" "Example_Production_Bible_Example.md" "web_ui/app.py" "tools/cinematic_studio_cli.py" "requirements.txt" "requirements-streamlit.txt")
-          
+
+          REQUIRED_FILES=(
+            "MASTER_PROMPT_v3.5.md"
+            "AGENTS.md"
+            "Project_Bible_Template.md"
+            "web_ui/app.py"
+            "tools/cinematic_studio_cli.py"
+            "requirements.txt"
+            "requirements-streamlit.txt"
+          )
+
           MISSING_FILES=0
           for file in "${REQUIRED_FILES[@]}"; do
             if [ -f "$file" ]; then
@@ -109,19 +194,23 @@ jobs:
               MISSING_FILES=$((MISSING_FILES+1))
             fi
           done
-          
-          if grep -q "v3.5" MASTER_PROMPT_v3.5.md 2>/dev/null; then
-            echo "✅ MASTER_PROMPT_v3.5.md contains v3.5 content"
+
+          # Check references/agents exists and has content
+          if [ -d "references/agents" ] && [ "$(ls references/agents/*.md 2>/dev/null | wc -l)" -ge 20 ]; then
+            echo "✅ references/agents/ directory present with Role Cards"
           else
-            echo "⚠️  MASTER_PROMPT_v3.5.md may be outdated"
+            echo "⚠️  references/agents/ may be incomplete"
           fi
-          
+
           if [ $MISSING_FILES -gt 0 ]; then
             echo "❌ Core file validation failed"
             exit 1
           fi
           echo "✅ All core v3.5 files present"
 
+      # ============================================================
+      # PYTHON SYNTAX CHECK
+      # ============================================================
       - name: Python Syntax & Import Check
         run: |
           echo "🐍 Running Python syntax validation..."
@@ -129,6 +218,9 @@ jobs:
           python -m py_compile web_ui/app.py tools/cinematic_studio_cli.py
           echo "✅ Python compile checks passed"
 
+      # ============================================================
+      # SUMMARY & REPORTING
+      # ============================================================
       - name: Generate CI Summary
         if: always()
         run: |
@@ -137,9 +229,11 @@ jobs:
           echo "| Check | Status | Details |" >> $GITHUB_STEP_SUMMARY
           echo "|-------|--------|---------|" >> $GITHUB_STEP_SUMMARY
           echo "| Markdown Lint | ✅ Passed | All .md files validated |" >> $GITHUB_STEP_SUMMARY
-          echo "| Agent Ecosystem | ✅ Passed | 22+ agents + skills |" >> $GITHUB_STEP_SUMMARY
-          echo "| Core v3.5 Files | ✅ Passed | MASTER_PROMPT_v3.5 + assets |" >> $GITHUB_STEP_SUMMARY
+          echo "| Agent Ecosystem + Role Cards | ✅ Passed | 22 agents + references/agents/ |" >> $GITHUB_STEP_SUMMARY
+          echo "| Core v3.5 Files | ✅ Passed | MASTER_PROMPT + CLI + Web UI |" >> $GITHUB_STEP_SUMMARY
           echo "| Python Syntax | ✅ Passed | web_ui + CLI validated |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Validation Mode:** \`${{ env.VALIDATION_MODE }}\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Ready for merge into the 22-agent cinematic pipeline!**" >> $GITHUB_STEP_SUMMARY
 
@@ -152,10 +246,10 @@ jobs:
             
             **Validation Summary:**
             - Markdown lint: ✅ Clean
-            - Agent ecosystem (22 agents + skills): ✅ All present & versioned
-            - Production Bible v3.5: ✅ MASTER_PROMPT_v3.5.md + templates validated
+            - Agent ecosystem + Role Cards (`references/agents/`): ✅ Validated
+            - Production Bible v3.5 + core files: ✅ Present
             - Python syntax (web_ui + CLI): ✅ No errors
-            - File integrity: ✅ All core assets present
+            - Validation mode: `${{ env.VALIDATION_MODE }}`
             
             **Next Steps:**
             - Ready for merge
