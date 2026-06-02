@@ -112,6 +112,44 @@ Then follow up with:
 **Power commands:** `SHOW QUOTA BREAKDOWN`, `OPTIMIZE FOR QUALITY`, `CHEAPEST HIGH QUALITY`
 **Usage:** Activate at the start of large batches or when monitoring credit usage.
 
+### Continuity Guardian v3.5
+**Primary:** `Activate Continuity Guardian` or `Enforce cross-clip consistency`
+**Power commands:** `STRICT CONTINUITY MODE`, `MULTI SHOT LOCK`
+**Common pattern:** `ACTIVATE ONLY Continuity Guardian, Identity Lock Specialist, Cinematic Sequence Extender`
+**Note:** Especially useful for long sequences and video extensions.
+
+### VFX & SFX Supervisor v3.5
+**Primary:** `Activate VFX & SFX Supervisor`
+**Power commands:** `PHOTOREALISTIC INTEGRATION`, `PRACTICAL EFFECTS MODE`
+**Common pattern:** `ACTIVATE ONLY VFX & SFX Supervisor, Director of Photography, Studio Director`
+
+### Key Art & Poster Designer v3.5
+**Primary:** `Activate Key Art & Poster Designer` or `Create theatrical key art`
+**Power commands:** `THEATRICAL POSTER MODE`, `ICONIC KEY ART`
+**Common pattern:** `ACTIVATE ONLY Key Art & Poster Designer, Studio Director`
+**Note:** Great for marketing materials and project covers.
+
+### Trailer & Teaser Director v3.5
+**Primary:** `Activate Trailer & Teaser Director`
+**Power commands:** `HIGH IMPACT HOOK`, `EMOTIONAL TRAILER PACING`
+**Common pattern:** `ACTIVATE ONLY Trailer & Teaser Director, Studio Director, Imagine Prompt Master`
+
+### Sound Design & Music Supervisor v3.5
+**Primary:** `Activate Sound Design & Music Supervisor` or `Add native audio`
+**Power commands:** `CINEMATIC SOUNDSCAPE`, `EMOTIONAL MUSIC CUE`
+**Common pattern:** `ACTIVATE ONLY Sound Design & Music Supervisor, Studio Director`
+**Note:** Use after visual sequence is locked.
+
+### Environment & World Builder v3.5
+**Primary:** `Activate Environment & World Builder`
+**Power commands:** `DETAILED WORLD CONSISTENCY`, `ATMOSPHERIC ENVIRONMENT`
+**Common pattern:** `ACTIVATE ONLY Environment & World Builder, Director of Photography, Studio Director`
+
+### Costume & Wardrobe Designer v3.5
+**Primary:** `Activate Costume & Wardrobe Designer`
+**Power commands:** `FABRIC BEHAVIOR FOCUS`, `WARDROBE CONTINUITY`
+**Common pattern:** `ACTIVATE ONLY Costume & Wardrobe Designer, Identity Lock Specialist, Director of Photography`
+
 ---
 
 ## Adding New Custom Agents
@@ -121,4 +159,4 @@ Then follow up with:
 3. Update this `AGENT_INDEX.md` table (add row in the appropriate section + update Last Updated date).
 4. (Optional) Add activation examples or integration notes to the relevant production bibles.
 
-**Last Updated:** June 02, 2026 — Expanded Agent-Specific Activation Examples section with Studio Director, Identity Lock, Sequence Director, ErosForge NSFW Director, and key supporting agents
+**Last Updated:** June 02, 2026 — Expanded Agent-Specific Activation Examples with Continuity Guardian, VFX, Key Art, Trailer, Sound Design, Environment, and Costume agents
