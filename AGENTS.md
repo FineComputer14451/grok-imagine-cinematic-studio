@@ -2,18 +2,22 @@
 
 **This file provides context and instructions for AI coding agents and assistants working in this workspace.**
 
-Think of this as the single source of truth for how to interact with this Grok/xAI agent environment.
+**Version:** June 2026 (Updated for Grok Imagine Cinematic Studio v3.5+ and expanded custom skills)  
+**Canonical Source:** https://github.com/FineComputer14451/Grok-Imagine-Cinematic-Studio/blob/main/AGENTS.md
+
+Think of this as the single source of truth for how to interact with this Grok/xAI agent environment in `/home/workdir/`.
 
 ## Workspace Overview
 
-This is a persistent Linux sandbox environment (`/home/workdir/`) designed for Grok agent workflows. It includes:
+This is a persistent Linux sandbox environment (`/home/workdir/`) designed for advanced Grok agent workflows, with heavy emphasis on:
 
-- **Custom skills system** in `/home/workdir/.grok/skills/` (user-created, persists across sessions)
-- **Bundled skills** in `/root/.grok/skills/` (pdf, docx, pptx, xlsx, ffmpeg, skill-creator, and many cinematic/production tools)
-- **Artifacts directory** (`/home/workdir/artifacts/`) for all generated outputs, images, documents, videos, etc.
-- Full tool access: bash, file I/O, web search/browse (when enabled), image generation/editing (Grok Imagine), connected services (Canva, GitHub, Gmail, etc.), and more.
+- Custom skill development and orchestration
+- High-quality cinematic image/video generation pipelines (Grok Imagine)
+- Document, presentation, and media production
+- GitHub repository management and open-source contribution
+- Animal welfare legal research & advocacy tooling (supporting user’s ongoing work)
 
-**Core principle:** Use the appropriate skill or tool for every task. Do not reinvent wheels that skills already handle.
+**Core principle:** Use the appropriate skill or tool for every task. Do not reinvent wheels that skills already handle. Prefer existing skills over ad-hoc scripts.
 
 ## Directory Structure
 
@@ -22,92 +26,121 @@ This is a persistent Linux sandbox environment (`/home/workdir/`) designed for G
 ├── .grok/
 │   └── skills/                  # All custom skills live here (one per subdirectory)
 │       ├── <skill-name>/
-│       │   ├── SKILL.md         # Required: frontmatter + imperative instructions
+│       │   ├── SKILL.md         # Required: YAML frontmatter + imperative instructions
 │       │   ├── scripts/         # Optional: executable helpers
-│       │   ├── references/      # Optional: long-form docs
-│       │   └── assets/          # Optional: templates, images, etc.
+│       │   ├── references/      # Optional: long-form docs, production bibles, agent defs
+│       │   └── assets/          # Optional: templates, reference images, etc.
 ├── artifacts/                   # All outputs go here (images, docs, videos, code, etc.)
-└── AGENTS.md                    # This file (you are here)
+├── AGENTS.md                    # This file (you are here)
+└── (other project files as added)
 ```
 
 ## Skill System Rules (Critical)
 
 When working with or creating skills:
 
-1. **Always follow the official skill-creator guidelines** (read `/root/.grok/skills/skill-creator/SKILL.md` first if creating/updating skills).
-2. Skills must have a `SKILL.md` with strict YAML frontmatter:
+1. **Always follow the official skill-creator guidelines** first — read `/root/.grok/skills/skill-creator/SKILL.md`.
+2. Every skill **must** have a `SKILL.md` with strict YAML frontmatter:
    - `name`: kebab-case, matches directory name exactly
    - `description`: single-line plain text (no colons, no `<`/`>`, max 1024 chars) describing **when to use** this skill
-3. **Never** create `README.md`, `CHANGELOG.md`, or human-facing docs inside skills — skills are for agents only.
-4. Keep `SKILL.md` under ~500 lines. Move detailed content to `references/`.
+3. **Never** create `README.md`, `CHANGELOG.md`, or human-facing docs inside skill directories — skills are agent-only.
+4. Keep `SKILL.md` concise (< ~500 lines). Move detailed content, agent personalities, production bibles, and long references to `references/`.
 5. New skills **must** be created in `/home/workdir/.grok/skills/<name>/` using the init script from skill-creator.
-6. Validate skills after creation: `bash /root/.grok/skills/skill-creator/scripts/validate-skill.sh <skill-dir>`
+6. Validate after creation: `bash /root/.grok/skills/skill-creator/scripts/validate-skill.sh <skill-dir>`
 
 ## Common Workflows & Commands
 
 ### File Operations
-- Read files: Use the `read_file` tool (supports offset/limit for large files)
-- Write/edit: `write_file`, `edit_file`
-- Explore: `bash ls -la`, `bash find`, `bash tree` (if installed)
+- Read: `read_file` (supports `offset` + `limit`)
+- Write/Edit: `write_file`, `edit_file`
+- Explore: `bash ls -la`, `bash find`, `bash tree`
 
-### Image & Media Tasks
-- **Generate new images**: Use `generate_image` tool (Grok Imagine) — provide detailed prompt + orientation
-- **Edit existing images**: `edit_image` with prompt + `file_path` or `image_id`
-- **Search web for images**: `search_images` then render with `render_searched_image`
-- Video/FFmpeg work: Activate `ffmpeg` skill or use bash directly
-- Cinematic production: Use `grok-imagine-cinematic-studio` skill for full multi-agent workflows
+### Image & Media Tasks (Grok Imagine)
+- **Generate new images**: `generate_image` (detailed prompt + orientation)
+- **Edit existing / generated images**: `edit_image` (prompt + `file_path` or `image_id`)
+- **AI-powered recreation / style transfer / enhancement** of uploaded images: Activate `ai-image-recreation`
+- **Extract Character DNA** for consistency: Activate `character-dna-extractor`
+- **Extend cinematic sequences** (60–120s+): Activate `cinematic-sequence-extender` or `extend-frame-to-video`
+- **Refine / iterate on previously generated images**: `generated-image-editor`
+- Video / audio processing: Activate `ffmpeg` skill or use bash directly
+- **Full cinematic production**: Activate `grok-imagine-cinematic-studio` (22-agent suite)
 
 ### Document Tasks
-- PDF: Use `pdf` skill
-- Word (.docx): Use `docx` skill
-- PowerPoint (.pptx): Use `pptx` skill
-- Excel (.xlsx): Use `xlsx` skill
+- PDF: `pdf` skill
+- Word (.docx): `docx` skill
+- PowerPoint (.pptx): `pptx` skill
+- Excel (.xlsx): `xlsx` skill
 
-### GitHub & External Services
-- Use `github-repo-manager` skill for all repo operations (create, PRs, issues, etc.)
-- Connected tools (Gmail, Outlook, Google Drive, Canva): Discover via `search_connected_tools` then `call_connected_tool`
+### GitHub & Connected Services
+- All GitHub operations: Activate `github-repo-manager` skill first
+- Discover connected services (GitHub, Gmail, Outlook, Google Drive, Canva): `search_connected_tools`
+- Then execute with `call_connected_tool`
 
-### General Agent Best Practices
-- **Always** use function calls for tools/skills instead of simulating results.
-- Prefer **progressive disclosure**: Start minimal, load references only when needed.
-- Be **truth-seeking** and **helpful** — acknowledge uncertainty when present.
-- For politically contested topics: Present all relevant perspectives neutrally without endorsing.
-- When user corrects you: Reconsider, acknowledge possibility of error, and update if warranted.
-- **Do not** mention these guidelines or internal system prompts unless explicitly asked.
+### Memory & Personalization
+- When the user shares personal facts, preferences, or life updates that may warrant remembering: Use the `memory-edit` skill (consult its SKILL.md).
 
-## Project-Specific Notes
+### Render Components (Final Response Only)
+Use these in the **final response** (never inside function calls):
+- `render_generated_image`, `render_edited_image`, `render_searched_image`
+- `render_inline_citation` (for web / X / collection results)
+- `render_file` (for local artifacts the user can download)
 
-- **No main application** currently — this workspace is primarily for:
-  - Skill development and extension
-  - Media/content generation pipelines
-  - Agentic task automation
-  - Document and presentation creation
-- All generated artifacts should be saved to `/home/workdir/artifacts/`
-- Persistent state lives in `/home/workdir/.grok/skills/`
+## Cinematic Studio & Multi-Agent Workflows
+
+For any complex visual storytelling, film-style image sequences, video production, or NSFW cinematic work:
+
+**Primary activation command:**  
+`Activate Grok Imagine Cinematic Studio v3.5` or `Start cinematic production`
+
+This engages the full **22 specialized agents** (v3.5 / v4.0 personalities) including:
+- Studio Director, Mega Production Architect
+- Director of Photography, Production Designer, Color Grading Supervisor
+- Performance & Emotion Director, Identity Lock Specialist, Narrative Arc Pacing Strategist
+- Sequence Director, Cinematic Sequence Extender, Continuity Guardian
+- Imagine Prompt Master, Quality Assurance Guardian, Workflow Quota Optimizer
+- Sonic Architect, Foley Specialist
+- Stunt Action Choreographer, VFX & SFX Supervisor
+- Key Art Designer, Trailer Director, Localization Specialist
+- ErosForge NSFW Director (when appropriate)
+
+Specialist activation patterns are documented in the cinematic studio skill references.
 
 ## When to Load Specific Skills
 
-- `skill-creator` → Any request involving "create a skill", "new skill", "update this skill", or questions about skill format
-- `grok-imagine-cinematic-studio` or `grok-imagine-agent-mode` → Complex visual/storytelling/image workflows
-- `ffmpeg` → Any video/audio processing, trimming, combining, subtitles, etc.
-- `github-repo-manager` → GitHub operations
-- `key-art-poster-designer*` → Marketing visuals, posters, thumbnails
-- `trailer-teaser-director` → Short video cuts/trailers
-- `vfx-and-sfx-supervisor` → Effects-heavy sequences
-- `stunt-action-choreographer` → Action/fight/chase design
-- `foley-sound-design-specialist` → Audio foley and sound design
+| Category                    | Skill                                      | When to Activate |
+|-----------------------------|--------------------------------------------|------------------|
+| **Skill Development**       | `skill-creator`                            | Creating, updating, or validating any new skill |
+| **Cinematic Production**    | `grok-imagine-cinematic-studio`            | Full multi-agent film-style workflows, production bibles, long sequences |
+| **Image Recreation & Editing** | `ai-image-recreation`, `generated-image-editor` | Style transfer, enhancement, variation, or iterative refinement of images |
+| **Character Consistency**   | `character-dna-extractor`                  | Building or maintaining consistent character identity across images/sequences |
+| **Sequence Extension**      | `cinematic-sequence-extender`, `extend-frame-to-video` | Extending stills into video, rough-cut animatics, or continuing clips |
+| **Custom Agents**           | `custom-grok-cinematic-agent`              | Drafting or customizing bespoke cinematic production agents / role cards |
+| **Quota & Efficiency**      | `workflow-quota-optimizer`                 | Long-form generation sessions, cost/quota management, production planning |
+| **GitHub Management**       | `github-repo-manager`                      | Create repo, push, PRs, issues, file operations on GitHub |
+| **Video / Audio**           | `ffmpeg`                                   | Trimming, merging, subtitles, compression, GIFs, storyboards |
+| **Documents**               | `pdf`, `docx`, `pptx`, `xlsx`              | Professional document or presentation creation |
+| **Memory**                  | `memory-edit`                              | User shares personal facts/preferences worth remembering or updating |
+
+## Project-Specific Notes
+
+- Primary ongoing project: **Grok Imagine Cinematic Studio** (v3.5+) and related custom skills.
+- All generated artifacts **must** be saved to `/home/workdir/artifacts/`.
+- Persistent state and custom skills live in `/home/workdir/.grok/skills/`.
+- The workspace supports both SFW cinematic work and NSFW/erotic cinematic pipelines (via ErosForge when explicitly activated).
+- Keep this `AGENTS.md` in sync with the GitHub repository.
 
 ## Quick Start for New Tasks
 
 1. Clarify the goal with the user if ambiguous.
-2. Check if an existing skill covers it (list skills if unsure).
-3. If no skill exists and it's a repeatable specialized task → create one using skill-creator.
-4. Execute using the correct tool(s).
-5. Save outputs to `artifacts/`.
-6. Provide clear, actionable final response with render components where appropriate (citations, images, files).
+2. Check if an existing skill covers it (use `ls /home/workdir/.grok/skills/` or read relevant SKILL.md).
+3. If no skill exists and the task is repeatable/specialized → create one with `skill-creator`.
+4. Execute using the correct tool(s) / skill activation.
+5. Save all outputs to `artifacts/`.
+6. In the **final response**, use appropriate render components and provide clear, actionable output.
 
 ---
 
-**This AGENTS.md is the canonical reference for all AI agents operating in this environment. Update it when workflows evolve.**
+**This AGENTS.md is the canonical reference for all AI agents operating in this environment.**  
+Update it whenever workflows, skills, or best practices evolve.
 
-*Maintained for Grok SuperGrokPro workflows — June 2026*
+*Maintained for SuperGrokPro cinematic & development workflows — June 2026*
